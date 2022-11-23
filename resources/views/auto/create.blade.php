@@ -1,21 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends("layout.plantilla")
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Crear Auto</title>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
-    </script>
-</head>
+@section("titulo", "Registrar Auto - Auto Wash Perú")
 
-<body>
+@section("contenido")
     <div class="container mt-3">
         <section>
             <article>
@@ -90,8 +77,6 @@
                                     <option value="Volkswagen"{{ old('marca') == 'Volkswagen' ? 'selected' : '' }}>Volkswagen</option>
                                     <option value="Volvo"{{ old('marca') == 'Volvo' ? 'selected' : '' }}>Volvo</option>
                                   </select>
-                               {{--  <input type="text" class="form-control" name="marca" id="marca"
-                                    value="{{ old('marca', $auto->marca) }}" /> --}}
                                 @if ($errors->first("marca"))
                                 <br />
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -101,7 +86,6 @@
                                 </div>
                                 @endif
                             </div>
-
                             <div class="mb-3">
                                 <label for="modelo" class="form-label">Modelo</label>
                                 <textarea class="form-control" name="modelo" id="modelo" rows="4"
@@ -115,7 +99,6 @@
                                 </div>
                                 @endif
                             </div>
-
                             <button type="submit" class="btn btn-outline-primary">Registrar Auto</button>
                         </form>
                     </div>
@@ -123,6 +106,4 @@
             </article>
         </section>
     </div>
-</body>
-
-</html>
+@endsection

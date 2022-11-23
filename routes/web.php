@@ -1,13 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-<<<<<<< HEAD
-use App\Http\Controllers\ServicioController;
 
-=======
+use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\AutoController;
 use App\Http\Controllers\ClienteController;
->>>>>>> b3b34599b35ce6e747f56f4b1ba68386e70f84cb
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,11 +21,10 @@ use App\Http\Controllers\ClienteController;
 Route::get('/', function () {
     return view('index');
 });
-<<<<<<< HEAD
+
+
 Route::resource("servicio", ServicioController::class);
-=======
 
 Route::resource('auto', AutoController::class);
 
 Route::resource('cliente', ClienteController::class);
->>>>>>> b3b34599b35ce6e747f56f4b1ba68386e70f84cb
