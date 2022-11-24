@@ -1,6 +1,6 @@
 @extends("layout.plantilla")
 
-@section("titulo", "Registrar Servicio - Auto Wash Perú")
+@section("titulo", "Auto Wash Perú | Nuevo Servicio")
 
 @section("contenido")
     <div class="container mt-3">

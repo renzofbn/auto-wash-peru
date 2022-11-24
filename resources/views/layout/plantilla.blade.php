@@ -19,7 +19,7 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
 
-    <title>@yield('titulo','Auto Wash Perú')</title>
+    <title>@yield('titulo','Auto Wash Perú | Inicio')</title>
 </head>
 
 <body>
@@ -53,10 +53,18 @@
                     </li>
                     <!-- {{-- Clientes --}} -->
                     <li class="nav-item dropdown rounded">
-                        <a class="{{ resaltar_enlace_dropdown('cliente.*') }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-person pe-2"></i>Clientes</a>
+                        <a class="{{ resaltar_enlace_dropdown('cliente.*') }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-people-group pe-2"></i>Clientes</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{{route ('cliente.index')}}">Listar</a></li>
                             <li><a class="dropdown-item" href="{{route ('cliente.create')}}">Agregar</a></li>
+                        </ul>
+                    </li>
+                    <!-- {{-- Empleados --}} -->
+                    <li class="nav-item dropdown rounded">
+                        <a class="{{ resaltar_enlace_dropdown('empleado.*') }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user pe-2"></i>Empleados</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{route ('empleado.index')}}">Listar</a></li>
+                            <li><a class="dropdown-item" href="{{route ('empleado.create')}}">Agregar</a></li>
                         </ul>
                     </li>
 

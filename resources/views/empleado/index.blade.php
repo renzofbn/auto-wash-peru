@@ -1,6 +1,6 @@
 @extends("layout.plantilla")
 
-@section("titulo", "Auto Wash Perú | Vehiculos")
+@section("titulo", "Auto Wash Perú | Empleados")
 
 @section("contenido")
     <div class="container mt-3">
@@ -8,38 +8,40 @@
         </header>
         <section>
             <article>
-                <a href="{{ route('auto.create') }}" class="btn btn-outline-success">
-                    Nuevo auto
+                <a href="{{ route('empleado.create') }}" class="btn btn-outline-success">
+                    Nuevo Empleado
                 </a>
                 <div class="card mt-3">
-                    @if ($auto)
-                    <h5 class="card-header">Autos</h5>
+                    @if ($empleado)
+                    <h5 class="card-header">Empleados</h5>
                     <div class="card-body">
                         <table class="table table-striped">
                             <tr>
-                                <th>Marca</th>
+                                <th>Apellido Paterno</th>
+                                <th>Nombre</th>
                                 <th colspan="3">Acción</th>
                             </tr>
-                            @foreach ($auto as $arr_auto)
+                            @foreach ($empleado as $arr_cliente)
                             <tr>
-                                <td>{{ $arr_auto->marca }}</td>
+                                <td>{{ $arr_cliente->ap_paterno }}</td>
+                                <td>{{ $arr_cliente->nombre }}</td>
                                 <td>
-                                    <a href="{{ route('auto.show', $arr_auto) }}" class="btn btn-outline-success btn-sm">
+                                    <a href="{{ route('empleado.show', $arr_cliente) }}" class="btn btn-outline-success btn-sm">
                                         Ver más
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('auto.edit', $arr_auto) }}" class="btn btn-outline-primary btn-sm">
+                                    <a href="{{ route('empleado.edit', $arr_cliente) }}" class="btn btn-outline-primary btn-sm">
                                         Editar
                                     </a>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#mc{{ $arr_auto->id }}">
+                                    <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#mc{{ $arr_cliente->id }}">
                                         Borrar
                                     </button>
                                 </td>
                                 <!-- Modal -->
-                                <div class="modal fade" id="mc{{ $arr_auto->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal fade" id="mc{{ $arr_cliente->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                         <div class="modal-header">
@@ -51,7 +53,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                            <form method="post" action="{{ route('auto.destroy', $arr_auto) }}">
+                                            <form method="post" action="{{ route('empleado.destroy', $arr_cliente) }}">
                                                 @csrf
                                                 @method("delete")
                                                 <button type="submit" class="btn btn-outline-danger">Borrar</button>
