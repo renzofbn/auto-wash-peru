@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule; //valida que el campo sea unico
 
 class ClienteController extends Controller
 {
@@ -33,20 +34,11 @@ class ClienteController extends Controller
             "nombre" => "required|min:2",
             "ap_paterno" => "required|min:3",
             "ap_materno" => "required|min:3",
-            "dni" => "required|unique:tb_cliente|min:8",
-            "telefono" => "required|min:9",
+            "dni" => "required|unique:tb_cliente|min:8|max:8",
+            "telefono" => "required|min:9|max:9",
             "direccion" => "required|min:10",
             "email" => "required|email|unique:tb_cliente",
-            "ruc" => "nullable|unique:tb_cliente|min:11"
-        ], [
-            "nombre.required" => "Escriba su nombre",
-            "ap_paterno.required" => "Escriba su apellido paterno",
-            "ap_materno.required" => "Escriba su apellido materno",
-            "dni.required" => "Escriba su DNI",
-            "telefono.required" => "Escriba su telefono",
-            "direccion.required" => "Escriba su direccion",
-            "email.required" => "Escriba su email",
-            "ruc.nullable" => "Escriba su RUC"
+            "ruc" => "nullable|unique:tb_cliente|min:11|max:11"
         ]);
 
         Cliente::create($arr_campo);
@@ -67,20 +59,11 @@ class ClienteController extends Controller
             "nombre" => "required|min:2",
             "ap_paterno" => "required|min:3",
             "ap_materno" => "required|min:3",
-            "dni" => "required|unique:cliente|min:8",
-            "telefono" => "required|min:9",
+            "dni" => ["required","min:8","max:8",Rule::unique('tb_cliente')->ignore($cliente->id)],
+            "telefono" => "required|min:9| max:9",
             "direccion" => "required|min:10",
-            "email" => "required|email|unique:cliente",
-            "ruc" => "nullable|unique:cliente|min:11"
-        ], [
-            "nombre.required" => "Escriba su nombre",
-            "ap_paterno.required" => "Escriba su apellido paterno",
-            "ap_materno.required" => "Escriba su apellido materno",
-            "dni.required" => "Escriba su DNI",
-            "telefono.required" => "Escriba su telefono",
-            "direccion.required" => "Escriba su direccion",
-            "email.required" => "Escriba su email",
-            "ruc.nullable" => "Escriba su RUC",
+            "email" => ["required","email",Rule::unique('tb_cliente')->ignore($cliente->id)],
+            "ruc" => ["nullable","min:11","max:11",Rule::unique('tb_cliente')->ignore($cliente->id)]
         ]);
 
         $cliente->update([

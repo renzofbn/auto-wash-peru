@@ -41,7 +41,7 @@
 
                             <div class="mb-3">
                                 <label for="precio_base" class="form-label">Precio Base del servicio</label>
-                                <input type="text" class="form-control" name="precio_base" id="precio_base value="{{ old('precio_base', $servicio->precio_base) }}" />
+                                <input type="text" class="form-control" name="precio_base" id="precio_base" value="{{ old('precio_base', $servicio->precio_base) }}" />
                                 @if ($errors->first("precio_base"))
                                 <br />
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
