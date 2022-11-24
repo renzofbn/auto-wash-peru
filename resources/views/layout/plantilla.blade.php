@@ -13,14 +13,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>
-    {{-- iconos --}}
+    <!-- {{-- iconos --}} -->
     <script src="https://kit.fontawesome.com/24b090fe9f.js" crossorigin="anonymous"></script>
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
 
     <title>@yield('titulo','Auto Wash Perú')</title>
 </head>
 
 <body>
-    {{-- Menú --}}
+    <!-- {{-- Menú --}} -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"></a>
@@ -30,32 +33,33 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-md-auto gap-2">
                     <li class="nav-item rounded">
-                        <a class="nav-link active" aria-current="page" href="{{'/'}}"><i class="fa-solid fa-house pe-2"></i>Inicio</a>
+                        <a class="{{ resaltar_enlace_nav_link('index') }}" aria-current="page" href="{{ route('index') }}"><i class="fa-solid fa-house pe-2"></i>Inicio</a>
                     </li>
-                    {{-- SERVICIOS --}}
+                    <!-- {{-- SERVICIOS --}} -->
                     <li class="nav-item dropdown rounded">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-screwdriver-wrench pe-2"></i>Servicios</a>
+                        <a class="{{ resaltar_enlace_dropdown('servicio.*') }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-screwdriver-wrench pe-2"></i>Servicios</a>
                         <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{route ('servicio.index')}}">Servicio</a></li>
-                            <li><a class="dropdown-item" href="{{route ('servicio.create')}}">Crear Servicio</a></li>
+                            <li><a class="dropdown-item" href="{{route ('servicio.index')}}">Listar</a></li>
+                            <li><a class="dropdown-item" href="{{route ('servicio.create')}}">Agregar</a></li>
                         </ul>
                     </li>
-                    {{-- AUTOS --}}
+                    <!-- {{-- AUTOS --}} -->
                     <li class="nav-item dropdown rounded">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-car pe-2"></i>Autos</a>
+                        <a class="{{ resaltar_enlace_dropdown('auto.*') }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-car pe-2"></i>Autos</a>
                         <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{route ('auto.index')}}">Auto</a></li>
-                            <li><a class="dropdown-item" href="{{route ('auto.create')}}">Crear Auto</a></li>
+                            <li><a class="dropdown-item" href="{{route ('auto.index')}}">Listar</a></a></li>
+                            <li><a class="dropdown-item" href="{{route ('auto.create')}}">Agregar</a></li>
                         </ul>
                     </li>
-                    {{-- Clientes --}}
+                    <!-- {{-- Clientes --}} -->
                     <li class="nav-item dropdown rounded">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-person pe-2"></i>Clientes</a>
+                        <a class="{{ resaltar_enlace_dropdown('cliente.*') }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-person pe-2"></i>Clientes</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{route ('cliente.index')}}">Cliente</a></li>
-                            <li><a class="dropdown-item" href="{{route ('cliente.create')}}">Crear Cliente</a></li>
+                            <li><a class="dropdown-item" href="{{route ('cliente.index')}}">Listar</a></li>
+                            <li><a class="dropdown-item" href="{{route ('cliente.create')}}">Agregar</a></li>
                         </ul>
                     </li>
+
                 </ul>
             </div>
         </div>
@@ -70,6 +74,7 @@
     {{-- Fin del contenido --}}
 
     {{-- Footer --}}
+    <br/><br/>
     <div class="bg-dark text-white">
         <p class="text-center p-4 m-0">Footer Content</p>
     </div>

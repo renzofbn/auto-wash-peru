@@ -18,11 +18,11 @@ use App\Http\Controllers\ClienteController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
-
+Route::view("/", "index")->name("index");
 Route::resource("servicio", ServicioController::class);
 
 Route::resource('auto', AutoController::class);
