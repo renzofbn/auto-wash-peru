@@ -24,7 +24,6 @@ return new class extends Migration
             $table ->string('email')->unique();
             $table ->string('direccion',200);
             $table ->string('cargo',60);
-            $table ->boolean('esta_trabajando');
             $table->timestamps();
         });
     }

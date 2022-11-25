@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Empleado;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+
+
 
 class EmpleadoController extends Controller
 {
@@ -33,24 +36,12 @@ class EmpleadoController extends Controller
             "nombre" => "required|min:2",
             "ap_paterno" => "required|min:3",
             "ap_materno" => "required|min:3",
-            "dni" => "required|unique:empleado|min:8",
-            "ruc" => "nullable|unique:empleado|min:11",
-            "telefono" => "required|min:9",
-            "email" => "required|email|unique:empleado",
+            "dni" => "required|unique:tb_empleado|min:8|max:8",
+            "ruc" => "nullable|unique:tb_empleado|min:11|max:11",
+            "telefono" => "required|min:9|max:9",
+            "email" => "required|email|unique:tb_empleado",
             "direccion" => "required|min:10",
             "cargo" => "required",
-            "esta_trabajando" => "required",
-        ], [
-            "nombre.required" => "Escriba su nombre",
-            "ap_paterno.required" => "Escriba su apellido paterno",
-            "ap_materno.required" => "Escriba su apellido materno",
-            "dni.required" => "Escriba su DNI",
-            "ruc.nullable" => "Escriba su RUC",
-            "telefono.required" => "Escriba su telefono",
-            "email.required" => "Escriba su email",
-            "direccion.required" => "Escriba su direccion",
-            "cargo.required" => "Escriba su cargo",
-            "esta_trabajando.required" => "Escriba el estado del trabajador"
         ]);
 
         Empleado::create($arr_campo);
@@ -71,25 +62,13 @@ class EmpleadoController extends Controller
             "nombre" => "required|min:2",
             "ap_paterno" => "required|min:3",
             "ap_materno" => "required|min:3",
-            "dni" => "required|unique:empleado|min:8",
+            "dni" => ["required","min:8","max:8",Rule::unique('tb_empleado')->ignore($empleado->id)],
             "ruc" => "nullable|unique:empleado|min:11",
             "telefono" => "required|min:9",
-            "email" => "required|email|unique:empleado",
+            "email" => ["required","email",Rule::unique('tb_empleado')->ignore($empleado->id)],
             "direccion" => "required|min:10",
             "cargo" => "required",
-            "esta_trabajando" => "required",
 
-        ], [
-            "nombre.required" => "Escriba su nombre",
-            "ap_paterno.required" => "Escriba su apellido paterno",
-            "ap_materno.required" => "Escriba su apellido materno",
-            "dni.required" => "Escriba su DNI",
-            "ruc.nullable" => "Escriba su RUC",
-            "telefono.required" => "Escriba su telefono",
-            "email.required" => "Escriba su email",
-            "direccion.required" => "Escriba su direccion",
-            "cargo.required" => "Escriba su cargo",
-            "esta_trabajando.required" => "Escriba el estado del trabajador"
         ]);
 
         $empleado->update([
@@ -102,7 +81,6 @@ class EmpleadoController extends Controller
             "email" => request("email"),
             "direccion" => request("direccion"),
             "cargo" => request("cargo"),
-            "esta_trabajando" => request("esta_trabajando"),
         ]);
 
         return redirect()->route("empleado.index");

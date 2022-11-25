@@ -107,20 +107,23 @@ class VentaController extends Controller
         ]);
 
         $venta->update([
-            "id_servicio" => request("id_servicio"),
-            "id_cliente" => request("id_cliente"),
-            "id_e_supervisor" => request("id_e_supervisor"),
-            "id_e_operario1" => request("id_e_operario1"),
-            "id_e_operario2" => request("id_e_operario2"),
-            "id_e_operario3" => request("id_e_operario3"),
-            "id_auto" => request("id_auto"),
+            "servicio" => request("servicio"),
+            "cliente" => request("cliente"),
+            "e_supervisor" => request("e_supervisor"),
+            "e_operario1" => request("e_operario1"),
+            "e_operario2" => request("e_operario2"),
+            "e_operario3" => request("e_operario3"),
+            "auto" => request("auto"),
             "tipo_auto" => request("tipo_auto"),
-            "estado" => request("estado"),
+            "finalizado" => request("finalizado"),
             "domicilio" => request("domicilio"),
             "subtotal" => request("subtotal"),
             "igv" => request("igv"),
             "total" => request("total"),
-            "fecha" => request("fecha")
+            "fecha_ingreso" => request("fecha_ingreso"),
+            "fecha_entrega" => request("fecha_entrega"),
+            
+            
         ]);
 
         return redirect()->route("venta.index");
