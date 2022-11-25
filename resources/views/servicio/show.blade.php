@@ -1,12 +1,8 @@
 @extends("layout.plantilla")
 
-@section('css')
-<link href="css/index.css" rel="stylesheet">
-<link href="css/custom_bootstrap.css" rel="stylesheet">
-
-<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-<link href="/css/index.css" rel="stylesheet">
-<link href="/css/profile.css" rel="stylesheet">
+@section('links')
+    <link href="/css/profile.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
 @endsection
 
 @section("titulo", "Auto Wash Perú | $servicio->nombre_servicio")

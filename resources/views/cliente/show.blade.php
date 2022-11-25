@@ -1,7 +1,10 @@
 @extends("layout.plantilla")
 
 @section("titulo", "Auto Wash Perú | $cliente->nombre $cliente->ap_paterno")
-
+@section('links')
+    <link href="/css/profile.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
+@endsection
 @section("contenido")
 
     <!-- Begin Top Author Page

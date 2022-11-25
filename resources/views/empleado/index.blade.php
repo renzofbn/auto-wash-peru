@@ -1,7 +1,10 @@
 @extends("layout.plantilla")
 
 @section("titulo", "Auto Wash Perú | Empleados")
-
+@section('links')
+    <link href="css/custom_bootstrap.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
+@endsection
 @section("contenido")
 <div class="container">
         <div class="mainheading">

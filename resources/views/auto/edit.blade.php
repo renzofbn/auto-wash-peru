@@ -98,7 +98,6 @@
                             </div>
                             @endif
                         </div>
-
                             <div class="col-md-8 offset-md-10">
                                 <button type="submit" class="btn btn-outline-primary">Guardar Cambios</button>
                             </div>
@@ -108,42 +107,4 @@
         </article>
     </section>
 </div>
-    <div class="container m-3">
-        <div class="row">
-            <div class="col-md-3">
-                <br>
-                <div class="profile-pic">
-                    <label class="-label" for="file">
-                        <span class="glyphicon glyphicon-camera"></span>
-                        <span>Cambiar imagen</span>
-                    </label>
-                    <form action="/save/profilePicture" method="post" enctype="multipart/form-data">
-                        <input id="file" type="file" name="pfp" accept="image/*" onchange="loadFile(event)"/>
-                        <input class="Ecambios d-none" id="uploadProfile" type="submit" value="subir"/>
-                    </form>
-
-                    <img src="/gradientes/1.jpg" id="output" width="200"  alt="{{ $auto->nombre_auto }}"/>
-                </div>
-
-            </div>
-            <div class="col-md-8 col-md-offset-2">
-                <div class="mainheading">
-                    <div class="row post-top-meta authorpage">
-
-                        <div class="col-md-10">
-                            
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Top Author Meta
-    ================================================== -->
-@endsection
-
-@section("scripts")
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
-    <script src="/js/changeProfile.js"></script>
 @endsection

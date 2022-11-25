@@ -17,15 +17,13 @@
     <script src="https://kit.fontawesome.com/24b090fe9f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet"  href="{{asset('css/styles.css')}}">
     
-    @yield('links')
+    
     <link rel="stylesheet"  href="{{asset('css/carrousel.css')}}">
     <script src="{{asset('js/carrousel.js') }}"></script>
-    <link href="css/index.css" rel="stylesheet">
-    <link href="css/custom_bootstrap.css" rel="stylesheet">
-
+    
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-    <link href="/css/index.css" rel="stylesheet">
-    <link href="/css/profile.css" rel="stylesheet">
+    
+    @yield('links')
 
     <title>@yield('titulo','Auto Wash Perú | Inicio')</title>
 </head>

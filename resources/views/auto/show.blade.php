@@ -1,7 +1,10 @@
 @extends("layout.plantilla")
 
 @section("titulo", "Auto Wash Perú | $auto->marca $auto->modelo")
-
+@section('links')
+    <link href="/css/profile.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
+@endsection
 @section("contenido")
 
     <!-- Begin Top Author Page
@@ -39,4 +42,5 @@
 @endsection
 
 @section("scripts")
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 @endsection
