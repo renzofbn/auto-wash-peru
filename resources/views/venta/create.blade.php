@@ -15,10 +15,13 @@
                 <div class="card-body">
                     <form method="post" action="{{ route('venta.store') }}"> {{-- views/venta --}}
                         @csrf
+                        @if($errors->any())
+                            {{ implode('', $errors->all('<div>:message</div>')) }}
+                            @endif
                         {{-- listar servicio --}}
                         <div class="mb-3">
                             <label for="servicio" class="form-label">Servicio</label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="servicio" id="servicio">
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="id_servicio" id="id_servicio">
                                 <option value="" selected>Seleccione un servicio</option>
                                 @foreach ($servicio as $servicio)
                                 <option value="{{ $servicio['id'] }}" {{ old('servicio') == $servicio['id'] ? 'selected' : '' }}>{{ $servicio['nombre_servicio'] }} | precio: {{ $servicio['precio_base'] }}</option>
@@ -35,7 +38,7 @@
                         {{-- listar cliente --}}
                         <div class="mb-3">
                             <label for="cliente" class="form-label">Cliente</label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="cliente" id="cliente">
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="id_cliente" id="id_cliente">
                                 <option value="" selected>Seleccione un cliente</option>
                                 @foreach ($cliente as $cliente)
                                 <option value="{{ $cliente['id'] }}" {{ old('cliente') == $cliente['id'] ? 'selected' : '' }}>{{ $cliente['nombre'] }} {{ $cliente['ap_paterno'] }} {{ $cliente['ap_materno'] }}</option>
@@ -52,7 +55,7 @@
                         {{-- listar vehiculo --}}
                         <div class="mb-3">
                             <label for="auto" class="form-label">Auto</label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="auto" id="auto">
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="id_auto" id="id_auto">
                                 <option value="" selected>Seleccione un Auto</option>
                                 @foreach ($auto as $auto)
                                 <option value="{{ $auto['id'] }}" {{ old('auto') == $auto['id'] ? 'selected' : '' }}>{{ $auto['marca'] }} {{ $auto['modelo'] }}</option>
@@ -69,7 +72,7 @@
                         <div class="mb-3">
                             
                             <label for="tipo" class="form-label">Tipo de vehiculo</label>
-                            <select   class="form-select form-select-sm" aria-label=".form-select-sm example" name="tipo" id="tipo">
+                            <select   class="form-select form-select-sm" aria-label=".form-select-sm example" name="tipo_auto" id="tipo_auto">
                                 <option value="" selected>Seleccione el tipo de vehiculo</option>
                                 <option value="Auto"{{ old('tipo') == 'Auto' ? 'selected' : '' }}>Auto</option>
                                 <option value="Camioneta"{{ old('tipo') == 'Camioneta' ? 'selected' : '' }}>Camioneta</option>
@@ -80,10 +83,10 @@
                         {{-- listar empleado --}}
                         <div class="mb-3">
                             <label for="e_supervisor" class="form-label">Supervisor</label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="e_supervisor" id="e_supervisor">
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="id_e_supervisor" id="id_e_supervisor">
                                 <option value="" selected>Seleccione un supervisor</option>
                                 @foreach ($e_supervisor as $e_supervisor)
-                                <option value="{{ $e_supervisor['id'] }}" {{ old('e_supervisor') == $e_supervisor['id'] ? 'selected' : '' }}>{{ $e_supervisor['nombre'] }}</option>
+                                <option value="{{ $e_supervisor['id'] }}" {{ old('e_supervisor') == $e_supervisor['id'] ? 'selected' : '' }}>{{ $e_supervisor['nombre'] }} | {{ $e_supervisor['cargo'] }}</option>
                                 @endforeach
                             </select>
                             @if ($errors->first("e_supervisor"))
@@ -97,7 +100,7 @@
                         {{-- listar empleado --}}
                         <div class="mb-3">
                             <label for="e_operario1" class="form-label">Operario 1</label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="e_operario1" id="e_operario1">
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="id_e_operario1" id="id_e_operario1">
                                 <option value="" selected>Seleccione un operario</option>
                                 @foreach ($e_operario1 as $e_operario1)
                                 <option value="{{ $e_operario1['id'] }}" {{ old('e_operario2') == $e_operario1['id'] ? 'selected' : '' }}>{{ $e_operario1['nombre'] }}</option>
@@ -114,7 +117,7 @@
                         {{-- listar empleado --}}
                         <div class="mb-3">
                             <label for="e_operario2" class="form-label">Operario 2</label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="e_operario2" id="e_operario2">
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="id_e_operario2" id="id_e_operario2">
                                 <option value="" selected>Seleccione un operario</option>
                                 @foreach ($e_operario2 as $e_operario2)
                                 <option value="{{ $e_operario2['id'] }}" {{ old('e_operario2') == $e_operario2['id'] ? 'selected' : '' }}>{{ $e_operario2['nombre'] }}</option>
@@ -131,7 +134,7 @@
                         {{-- listar empleado --}}
                         <div class="mb-3">
                             <label for="e_operario3" class="form-label">Operario 3</label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="e_operario3" id="e_operario3">
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="id_e_operario3" id="id_e_operario3">
                                 <option value="" selected>Seleccione un operario</option>
                                 @foreach ($e_operario3 as $e_operario3)
                                 <option value="{{ $e_operario3['id'] }}" {{ old('e_operario3') == $e_operario3['id'] ? 'selected' : '' }}>{{ $cliente['nombre'] }}</option>

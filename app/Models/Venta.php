@@ -13,7 +13,7 @@ class Venta extends Model
 
     protected $table = "tb_venta";
 
-    protected $fillable =['servicio','auto','cliente','e_supervisor','e_operario1','e_operario2','e_operario3','tipo_auto','finalizado','domicilio','subtotal','igv','total','fecha_ingreso','fecha_entrega'];
+    protected $fillable =['id_servicio','id_auto','id_cliente','id_e_supervisor','id_e_operario1','id_e_operario2','id_e_operario3','tipo_auto','finalizado','domicilio','subtotal','igv','total','fecha_ingreso','fecha_entrega'];
     
     public function servicio(){
         return $this->belongsTo('App\Models\Servicio','id_servicio');
