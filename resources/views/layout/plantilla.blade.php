@@ -18,9 +18,8 @@
     <link rel="stylesheet"  href="{{asset('css/styles.css')}}">
 
 
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    
-
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    @yield("css")
 
     <title>@yield('titulo','Auto Wash Perú | Inicio')</title>
 </head>
@@ -82,16 +81,22 @@
             </div>
         </div>
     </nav>
-
-
-
     {{-- Fin del menú --}}
-
     {{-- Contenido --}}
     @yield('contenido')
     {{-- Fin del contenido --}}
 
     {{-- Footer --}}
+    <br/>
+    <!-- <div class="container">
+    <div class="footer">
+            <p class="pull-left">
+                Copyright &copy; 2022 Auto Wash Perú
+            </p>
+            <div class="clearfix">
+            </div>
+        </div> 
+    </div> -->
     <section class="contact-area" id="contact">
         <div class="container">
             <div class="row">
@@ -123,5 +128,7 @@
     </footer>
     {{-- Fin del footer --}}
 </body>
+@yield('scripts')
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
 
 </html>

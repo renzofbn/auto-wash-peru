@@ -10,7 +10,7 @@ class Servicio extends Model
     //use HasFactory;
     protected $table = "tb_servicio";
 
-    protected $fillable = ["nombre_servicio", "descripcion_servicio","precio_base"];
+    protected $fillable = ["nombre_servicio", "descripcion_servicio","precio_base", "img_servicio"];
     
     
 }
