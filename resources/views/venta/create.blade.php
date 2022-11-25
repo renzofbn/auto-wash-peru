@@ -86,7 +86,7 @@
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="id_e_supervisor" id="id_e_supervisor">
                                 <option value="" selected>Seleccione un supervisor</option>
                                 @foreach ($e_supervisor as $e_supervisor)
-                                <option value="{{ $e_supervisor['id'] }}" {{ old('e_supervisor') == $e_supervisor['id'] ? 'selected' : '' }}>{{ $e_supervisor['nombre'] }} | {{ $e_supervisor['cargo'] }}</option>
+                                <option value="{{ $e_supervisor['id'] }}" {{ old('e_supervisor') == $e_supervisor['id'] ? 'selected' : '' }}>{{ $e_supervisor['nombre'] }} {{ $e_supervisor['ap_paterno'] }} | {{ $e_supervisor['cargo'] }}</option>
                                 @endforeach
                             </select>
                             @if ($errors->first("e_supervisor"))
@@ -103,7 +103,7 @@
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="id_e_operario1" id="id_e_operario1">
                                 <option value="" selected>Seleccione un operario</option>
                                 @foreach ($e_operario1 as $e_operario1)
-                                <option value="{{ $e_operario1['id'] }}" {{ old('e_operario2') == $e_operario1['id'] ? 'selected' : '' }}>{{ $e_operario1['nombre'] }}</option>
+                                <option value="{{ $e_operario1['id'] }}" {{ old('e_operario2') == $e_operario1['id'] ? 'selected' : '' }}>{{ $e_supervisor['nombre'] }} {{ $e_supervisor['ap_paterno'] }} | {{ $e_supervisor['cargo'] }}</option>
                                 @endforeach
                             </select>
                             @if ($errors->first("e_operario2"))
@@ -120,7 +120,7 @@
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="id_e_operario2" id="id_e_operario2">
                                 <option value="" selected>Seleccione un operario</option>
                                 @foreach ($e_operario2 as $e_operario2)
-                                <option value="{{ $e_operario2['id'] }}" {{ old('e_operario2') == $e_operario2['id'] ? 'selected' : '' }}>{{ $e_operario2['nombre'] }}</option>
+                                <option value="{{ $e_operario2['id'] }}" {{ old('e_operario2') == $e_operario2['id'] ? 'selected' : '' }}>{{ $e_supervisor['nombre'] }} {{ $e_supervisor['ap_paterno'] }} | {{ $e_supervisor['cargo'] }}</option>
                                 @endforeach
                             </select>
                             @if ($errors->first("e_operario2"))
@@ -137,7 +137,7 @@
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="id_e_operario3" id="id_e_operario3">
                                 <option value="" selected>Seleccione un operario</option>
                                 @foreach ($e_operario3 as $e_operario3)
-                                <option value="{{ $e_operario3['id'] }}" {{ old('e_operario3') == $e_operario3['id'] ? 'selected' : '' }}>{{ $cliente['nombre'] }}</option>
+                                <option value="{{ $e_operario3['id'] }}" {{ old('e_operario3') == $e_operario3['id'] ? 'selected' : '' }}>{{ $e_supervisor['nombre'] }} {{ $e_supervisor['ap_paterno'] }} | {{ $e_supervisor['cargo'] }}</option>
                                 @endforeach
                             </select>
                             @if ($errors->first("e_operario3"))

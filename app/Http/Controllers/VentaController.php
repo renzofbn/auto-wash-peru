@@ -7,6 +7,7 @@ use App\Models\Venta;
 use App\Models\Auto;
 use App\Models\Cliente;
 use App\Models\Servicio;
+use App\Models\Empleado;
 use Carbon\Carbon;
 
 
@@ -30,10 +31,10 @@ class VentaController extends Controller
         $servicio = Servicio::orderBy('nombre_servicio', 'asc')->get();
         $auto = Auto::orderBy('marca', 'asc')->get();
         $cliente = Cliente::orderBy('nombre', 'asc')->get();
-        $e_supervisor = Cliente::orderBy('nombre', 'asc')->get();
-        $e_operario1 = Cliente::orderBy('nombre', 'asc')->get();
-        $e_operario2 = Cliente::orderBy('nombre', 'asc')->get();
-        $e_operario3 = Cliente::orderBy('nombre', 'asc')->get();
+        $e_supervisor = Empleado::orderBy('nombre', 'asc')->get();
+        $e_operario1 = Empleado::orderBy('nombre', 'asc')->get();
+        $e_operario2 = Empleado::orderBy('nombre', 'asc')->get();
+        $e_operario3 = Empleado::orderBy('nombre', 'asc')->get();
 
         $venta = null;
         if (is_null($venta)) {
@@ -82,24 +83,17 @@ class VentaController extends Controller
 
     public function edit(Venta $venta) {
 
-
         $servicio = Servicio::orderBy('nombre_servicio', 'asc')->get();
         $auto = Auto::orderBy('marca', 'asc')->get();
         $cliente = Cliente::orderBy('nombre', 'asc')->get();
-        $e_supervisor = Cliente::orderBy('nombre', 'asc')->get();
-        $e_operario1 = Cliente::orderBy('nombre', 'asc')->get();
-        $e_operario2 = Cliente::orderBy('nombre', 'asc')->get();
-        $e_operario3 = Cliente::orderBy('nombre', 'asc')->get();
+        $e_supervisor = Empleado::orderBy('nombre', 'asc')->get();
+        $e_operario1 = Empleado::orderBy('nombre', 'asc')->get();
+        $e_operario2 = Empleado::orderBy('nombre', 'asc')->get();
+        $e_operario3 = Empleado::orderBy('nombre', 'asc')->get();
+        $venta_data = Venta::findOrFail('1');
 
-        $venta = null;
-        if (is_null($venta)) {
-            $venta = Venta::make([
-                'fecha_ingreso' => Carbon::now(),
-                'fecha_entrega' => Carbon::now(),
-            ]);
-        }
 
-        return view('venta.edit', compact('servicio', 'auto', 'cliente','e_supervisor','e_operario1','e_operario2','e_operario3','venta'), [
+        return view('venta.edit', compact('servicio', 'auto', 'cliente','e_supervisor','e_operario1','e_operario2','e_operario3','venta_data'), [
             "venta" => $venta
         ]); 
     }
