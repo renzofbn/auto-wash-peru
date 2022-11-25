@@ -6,6 +6,7 @@ use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\AutoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\VentaController;
+use App\Http\Controllers\EmpleadoController;
 
 
 /*
@@ -19,11 +20,9 @@ use App\Http\Controllers\VentaController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// });
 
 Route::view("/", "index")->name("index");
+
 Route::resource("servicio", ServicioController::class);
 
 Route::resource('auto', AutoController::class);
@@ -31,3 +30,4 @@ Route::resource('auto', AutoController::class);
 Route::resource('cliente', ClienteController::class);
 
 Route::resource('venta', VentaController::class);
+Route::resource('empleado', EmpleadoController::class);

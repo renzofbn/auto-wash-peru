@@ -1,6 +1,6 @@
 @extends("layout.plantilla")
 
-@section("titulo", "Detalle Auto - Auto Wash Perú")
+@section("titulo", "Auto Wash Perú | $auto->marca $auto->modelo")
 
 @section("contenido")
     <div class="container mt-3">

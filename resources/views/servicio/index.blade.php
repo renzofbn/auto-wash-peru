@@ -22,8 +22,7 @@
                             </tr>
                                 @foreach ( $servicio as $arr_servicio)
                                     <tr>
-                                        <td>arr_servicios</td>
-                                        <td>{{ $arr_servicio->servicio }}</td>
+                                        <td>{{ $arr_servicio->nombre_servicio }}</td>
                                         <td>
                                             <a href="{{ route('servicio.show', $arr_servicio) }}" class="btn btn-outline-success btn-sm">
                                                 Ver Detalle
