@@ -3,76 +3,94 @@
 @section("titulo", "Auto Wash Perú | Empleados")
 
 @section("contenido")
-    <div class="container mt-3">
-        <header>
-        </header>
-        <section>
-            <article>
-                <a href="{{ route('empleado.create') }}" class="btn btn-outline-success">
-                    Nuevo Empleado
-                </a>
-                <div class="card mt-3">
-                    @if ($empleado)
-                    <h5 class="card-header">Empleados</h5>
-                    <div class="card-body">
-                        <table class="table table-striped">
-                            <tr>
-                                <th>Apellido Paterno</th>
-                                <th>Nombre</th>
-                                <th colspan="3">Acción</th>
-                            </tr>
-                            @foreach ($empleado as $arr_cliente)
-                            <tr>
-                                <td>{{ $arr_cliente->ap_paterno }}</td>
-                                <td>{{ $arr_cliente->nombre }}</td>
-                                <td>
-                                    <a href="{{ route('empleado.show', $arr_cliente) }}" class="btn btn-outline-success btn-sm">
-                                        Ver más
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="{{ route('empleado.edit', $arr_cliente) }}" class="btn btn-outline-primary btn-sm">
-                                        Editar
-                                    </a>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#mc{{ $arr_cliente->id }}">
-                                        Borrar
-                                    </button>
-                                </td>
-                                <!-- Modal -->
-                                <div class="modal fade" id="mc{{ $arr_cliente->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Borrar registro</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            ¿Seguro de borrar el registro?
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                            <form method="post" action="{{ route('empleado.destroy', $arr_cliente) }}">
-                                                @csrf
-                                                @method("delete")
-                                                <button type="submit" class="btn btn-outline-danger">Borrar</button>
-                                            </form>
-                                        </div>
-                                        </div>
+<div class="container">
+        <div class="mainheading">
+            <h1 class="sitetitle">empleados en Auto Wash Perú</h1>
+            <p class="lead">
+               Vista de los empleados que ofrecemos en Auto Wash Perú
+            </p>
+        </div>
+        <!-- End Site Title
+        ================================================== -->
+
+        <!-- Begin Featured
+        ================================================== -->
+        <section class="featured-posts">
+            <div class="section-title">
+                <h2><span>empleados | </span></h2>
+            </div>
+            <div class="card-columns listfeaturedtag">
+                
+            @if ($empleado)
+                @foreach ( $empleado as $arr_empleado)
+                <!-- begin post -->
+                <div class="card">
+                    <div class="row">
+                        <div class="col-md-5 wrapthumbnail">
+                            <a href="{{ route('empleado.show', $arr_empleado) }}">
+                                <div class="thumbnail" style="background-image:url(/gradientes/{{ rand(1, 10) }}.jpg)">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="card-block">
+                                <h2 class="card-title"><a href="{{ route('empleado.show', $arr_empleado) }}">{{ $arr_empleado->nombre }}</a></h2>
+                                <h4 class="card-text">{{ $arr_empleado->ap_paterno }} {{ $arr_empleado->ap_materno }}</h4>
+                                <div class="metafooter">
+                                    <div class="wrapfooter">
+                                        <span class="meta-footer-thumb">
+                                        <a href="#"><img class="author-thumb" src="assets/default_profile.png" alt="Autor"></a>
+                                        </span>
+                                        <span class="author-meta">
+                                        <span class="post-name"><a href="#">Autor</a></span><br/>
+                                        <span class="post-date">{{ $arr_empleado->email }}</span>
+                                        </span>
+                                        <span class="btn-eliminar">
+                                            <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#mc{{ $arr_empleado->id }}">
+                                                <i class="fa-solid fa-trash" data-bs-toggle="modal" data-bs-target="#mc{{ $arr_empleado->id }}"></i>
+                                            </button>
+                                            <div class="modal fade" id="mc{{ $arr_empleado->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Borrar registro</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            ¿Seguro de borrar el registro?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                            <form method="post" action="{{ route('empleado.destroy', $arr_empleado) }}">
+                                                                @csrf
+                                                                @method("delete")
+                                                                <button type="submit" class="btn btn-outline-danger">Borrar</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </span>
                                     </div>
                                 </div>
-                            </tr>
-                            @endforeach
-                        </table>
+                            </div>
+                        </div>
                     </div>
-                    @else
-                    <div class="alert alert-danger" role="alert">
-                        No hay registros
-                    </div>
-                    @endif
                 </div>
-            </article>
+                <!-- end post -->
+                @endforeach
+            @else
+            <div class="alert alert-danger" role="alert">
+                No hay registros
+            </div>
+            @endif  
+            </div>
         </section>
+        <!-- End Featured
+        ================================================== -->
+
     </div>
+    @endsection
+@section("scripts")
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 @endsection

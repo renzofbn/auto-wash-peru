@@ -1,52 +1,55 @@
 @extends("layout.plantilla")
 
-@section("titulo", "Auto Wash Perú | $empleado->nombre $empleado->ap_paterno")
+
+@section("titulo", "empleado Wash Perú | $empleado->nombre $empleado->ap_paterno")
 
 @section("contenido")
-    <div class="container mt-3">
-        <header></header>
-        <section>
-            <article>
-                <a href="{{ route('empleado.index') }}" class="btn btn-outline-success">
-                    Regresar
-                </a>
-                <div class="card mt-3">
-                    <h5 class="card-header">{{ $empleado->ap_paterno }}</h5>
-                    <div class="card-body">
-                        <table class="table">
-                            <thead>
-                              <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Apellido Paterno</th>
-                                <th scope="col">Apellido Materno</th>
-                                <th scope="col">DNI</th>
-                                <th scope="col">Ruc</th>
-                                <th scope="col">Teléfono</th>
-                                <th scope="col">Correo</th>
-                                <th scope="col">Dirección</th>
-                                <th scope="col">Cargo</th>
-                                <th scope="col">Actual Empleado</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{ $empleado->nombre }}</td>
-                                    <td>{{ $empleado->ap_paterno }}</td>
-                                    <td>{{ $empleado->ap_materno }}</td>
-                                    <td>{{ $empleado->dni }}</td>
-                                    <td>{{ $empleado->ruc }}</td>
-                                    <td>{{ $empleado->telefono }}</td>
-                                    <td>{{ $empleado->email}}</td>
-                                    <td>{{ $empleado->direccion }}</td>
-                                    <td>{{ $empleado->cargo }}</td>
-                                    <td>{{ $empleado->esta_trabajando }}</td>
-                                </tr>
-                            </tbody>
-                          </table>
-                        
+
+    <!-- Begin Top Author Page
+    ================================================== -->
+    <br/>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                    <img  id="big-thumb" class="img-fluid" src="/gradientes/{{ rand(1, 10) }}.jpg" alt="{{ $empleado->nombre }}  ">
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="mainheading">
+
+                    <div class="row post-top-meta authorpage">
+                        <div class="row post-top-meta authorpage">
+                        <div class="col-md-10 col-xs-12">
+                            <h1>{{ $empleado->nombre }} {{ $empleado->ap_paterno}} {{ $empleado->ap_materno}}</h1>
+                            <h5 style='font-size:20px'>Email</h5>
+                            <span style='font-size:16px' class="pull-right"> {{ $empleado->email }}</span>
+                            <h5 style='font-size:20px'>DNI</h5>
+                            <span style='font-size:16px' class="pull-right"> {{ $empleado->dni }}</span>
+                            <h5 style='font-size:20px'>RUC</h5>
+                            <span style='font-size:16px' class="pull-right"> {{ $empleado->ruc}}</span>
+                            <h5 style='font-size:20px'>Telefono</h5>
+                            <span style='font-size:16px' class="pull-right"> {{ $empleado->telefono }}</span>
+                            <h5 style='font-size:20px'>Direccion</h5>
+                            <span style='font-size:16px' class="pull-right"> {{ $empleado->direccion }}</span>
+                            <<h5 style='font-size:20px'>Cargo</h5>
+                            <span style='font-size:16px' class="pull-right"> {{ $empleado->cargo }}</span>
+                            
+                        </div>
                     </div>
                 </div>
-            </article>
-        </section>
+            </div>
+            <div class="col-md-8 offset-md-8">
+                <a href="{{ route('empleado.index') }}" class="btn btn-outline-primary">
+                    Regresar
+                </a>
+                <a href="{{ route('empleado.edit', $empleado) }}" class="btn btn-outline-secondary">
+                    Editar
+                </a>
+            </div>
+        </div>
     </div>
+    <!-- End Top Author Meta
+    ================================================== -->
+@endsection
+
+@section("scripts")
 @endsection

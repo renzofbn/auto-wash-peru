@@ -3,46 +3,48 @@
 @section("titulo", "Auto Wash Perú | $cliente->nombre $cliente->ap_paterno")
 
 @section("contenido")
-    <div class="container mt-3">
-        <header></header>
-        <section>
-            <article>
-                <a href="{{ route('cliente.index') }}" class="btn btn-outline-success">
-                    Regresar
-                </a>
-                <div class="card mt-3">
-                    <h5 class="card-header">{{ $cliente->ap_paterno }}</h5>
-                    <div class="card-body">
-                        <table class="table">
-                            <thead>
-                              <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Apellido Paterno</th>
-                                <th scope="col">Apellido Materno</th>
-                                <th scope="col">DNI</th>
-                                <th scope="col">Ruc</th>
-                                <th scope="col">Teléfono</th>
-                                <th scope="col">Correo</th>
-                                <th scope="col">Dirección</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{ $cliente->nombre }}</td>
-                                    <td>{{ $cliente->ap_paterno }}</td>
-                                    <td>{{ $cliente->ap_materno }}</td>
-                                    <td>{{ $cliente->dni }}</td>
-                                    <td>{{ $cliente->ruc }}</td>
-                                    <td>{{ $cliente->telefono }}</td>
-                                    <td>{{ $cliente->email}}</td>
-                                    <td>{{ $cliente->direccion }}</td>
-                                </tr>
-                            </tbody>
-                          </table>
-                        
+
+    <!-- Begin Top Author Page
+    ================================================== -->
+    <br/>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                    <img  id="big-thumb" class="img-fluid" src="/gradientes/{{ rand(1, 10) }}.jpg" alt="{{ $cliente->marca }}">
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="mainheading">
+
+                    <div class="row post-top-meta authorpage">
+                        <div class="col-md-10 col-xs-12">
+                            <h1>{{ $cliente->nombre }} {{ $cliente->ap_paterno}} {{ $cliente->ap_materno}}</h1>
+                            <h5 style='font-size:20px'>Email</h5>
+                            <span style='font-size:16px' class="pull-right"> {{ $cliente->email }}</span>
+                            <h5 style='font-size:20px'>DNI</h5>
+                            <span style='font-size:16px' class="pull-right"> {{ $cliente->dni }}</span>
+                            <h5 style='font-size:20px'>RUC</h5>
+                            <span style='font-size:16px' class="pull-right"> {{ $cliente->ruc}}</span>
+                            <h5 style='font-size:20px'>Telefono</h5>
+                            <span style='font-size:16px' class="pull-right"> {{ $cliente->telefono }}</span>
+                            <h5 style='font-size:20px'>Direccion</h5>
+                            <span style='font-size:16px' class="pull-right"> {{ $cliente->direccion }}</span>
+                        </div>
                     </div>
                 </div>
-            </article>
-        </section>
+            </div>
+            <div class="col-md-8 offset-md-8">
+                <a href="{{ route('cliente.index') }}" class="btn btn-outline-primary">
+                    Regresar
+                </a>
+                <a href="{{ route('cliente.edit', $cliente) }}" class="btn btn-outline-secondary">
+                    Editar
+                </a>
+            </div>
+        </div>
     </div>
+    <!-- End Top Author Meta
+    ================================================== -->
+@endsection
+
+@section("scripts")
 @endsection

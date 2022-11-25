@@ -4,8 +4,6 @@
 
 @section("contenido")
     <div class="container mt-3">
-        <header>
-        </header>
         <section>
             <article>
                 <a href="{{ route('cliente.index') }}" class="btn btn-outline-success">

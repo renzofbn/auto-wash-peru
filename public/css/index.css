@@ -254,6 +254,11 @@ span.post-name a,span.post-read-more a:hover {
 .article-post p,.article-post blockquote {
 	margin:0 0 1.5rem 0;
 }
+.btn-eliminar{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
 @media (min-width:1024px) {
 	
 	.share {

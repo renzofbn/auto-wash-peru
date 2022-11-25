@@ -63,12 +63,11 @@ class EmpleadoController extends Controller
             "ap_paterno" => "required|min:3",
             "ap_materno" => "required|min:3",
             "dni" => ["required","min:8","max:8",Rule::unique('tb_empleado')->ignore($empleado->id)],
-            "ruc" => "nullable|unique:empleado|min:11",
+            "ruc" => ["nullable","min:11","max:11",Rule::unique('tb_empleado')->ignore($empleado->id)],
             "telefono" => "required|min:9",
             "email" => ["required","email",Rule::unique('tb_empleado')->ignore($empleado->id)],
             "direccion" => "required|min:10",
             "cargo" => "required",
-
         ]);
 
         $empleado->update([
