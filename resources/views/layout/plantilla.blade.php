@@ -16,10 +16,16 @@
     <!-- {{-- iconos --}} -->
     <script src="https://kit.fontawesome.com/24b090fe9f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet"  href="{{asset('css/styles.css')}}">
-
+    
+    @yield('links')
+    <link rel="stylesheet"  href="{{asset('css/carrousel.css')}}">
+    <script src="{{asset('js/carrousel.js') }}"></script>
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/custom_bootstrap.css" rel="stylesheet">
 
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-    @yield("css")
+    <link href="/css/index.css" rel="stylesheet">
+    <link href="/css/profile.css" rel="stylesheet">
 
     <title>@yield('titulo','Auto Wash Perú | Inicio')</title>
 </head>
@@ -129,6 +135,6 @@
     {{-- Fin del footer --}}
 </body>
 @yield('scripts')
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></scrip>
 
 </html>

@@ -11,9 +11,9 @@
                 <a href="{{ route('empleado.index') }}" class="btn btn-outline-success">
                     Regresar
                 </a>
-                <!-- Formulario para editar Empleado -->
+                <!-- Formulario para editar empleado -->
                 <div class="card mt-3">
-                    <h5 class="card-header">Editar Empleado</h5>
+                    <h5 class="card-header">Editar empleado</h5>
                     <div class="card-body">
                         <form method="post" action="{{ route('empleado.update', $empleado) }}">
                             @csrf
@@ -122,7 +122,6 @@
                                 </div>
                                 @endif
                             </div>
-
                             <div class="mb-3">
                                 <label for="cargo" class="form-label">Cargo</label>
                                 <input type="text" class="form-control" name="cargo" id="cargo"
@@ -144,3 +143,5 @@
         </section>
     </div>
 @endsection
+
+
