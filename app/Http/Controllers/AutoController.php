@@ -30,6 +30,8 @@ class AutoController extends Controller
 
     public function store() {
         // Validar los campos
+
+
         $arr_campo = request()->validate([
             "marca" => "required|min:2",
             "modelo" => "required|min:8"

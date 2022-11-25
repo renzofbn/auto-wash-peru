@@ -16,8 +16,8 @@
     <!-- {{-- iconos --}} -->
     <script src="https://kit.fontawesome.com/24b090fe9f.js" crossorigin="anonymous"></script>
 
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    @yield("css")
 
     <title>@yield('titulo','Auto Wash Perú | Inicio')</title>
 </head>
@@ -72,21 +72,25 @@
             </div>
         </div>
     </nav>
-
-
-
     {{-- Fin del menú --}}
-
     {{-- Contenido --}}
     @yield('contenido')
     {{-- Fin del contenido --}}
 
     {{-- Footer --}}
-    <br/><br/>
-    <div class="bg-dark text-white">
-        <p class="text-center p-4 m-0">Footer Content</p>
+    <br/>
+    <div class="container">
+    <div class="footer">
+            <p class="pull-left">
+                Copyright &copy; 2022 Auto Wash Perú
+            </p>
+            <div class="clearfix">
+            </div>
+        </div> 
     </div>
     {{-- Fin del footer --}}
 </body>
+@yield('scripts')
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
 
 </html>

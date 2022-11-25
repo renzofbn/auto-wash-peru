@@ -124,7 +124,7 @@
                                 <label for="cargo" class="form-label">Cargo</label>
                                 <input type="text" class="form-control" name="cargo" id="cargo"
                                     value="{{ old('cargo', $empleado->cargo) }}" />
-                                @if ($errors->first("cargo))
+                                @if ($errors->first("cargo"))
                                 <br />
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     {{ $errors->first("cargo") }}
@@ -136,7 +136,7 @@
 
                             <div class="mb-3">
                                 <label for="esta_trabajando" class="form-label">Actual Empleado</label>
-                                <input type="checkbox" class="form-control" name="esta_trabajando" id="esta_trabajando"
+                                <input type="checkbox"  name="esta_trabajando" id="esta_trabajando"
                                     value="{{ old('esta_trabajando', $empleado->esta_trabajando) }}" />
                                 @if ($errors->first("esta_trabajando"))
                                 <br />

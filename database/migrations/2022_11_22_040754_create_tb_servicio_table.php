@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->String('nombre_servicio',100);
             $table->String('descripcion_servicio',150)->nullable();
+            $table->String('img_servicio',250)->nullable();
             $table->decimal('precio_base',8,2);
 
 

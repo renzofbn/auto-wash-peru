@@ -30,7 +30,8 @@ class ServicioController extends Controller
         $arr_campo = request()->validate([
             "nombre_servicio" => "required|max:100|min:5",
             "descripcion_servicio" => "nullable|max:150",
-            "precio_base" => "required"
+            "precio_base" => "required",
+            "img_servicio" => "nullable|max:250"
         ],);
 
         Servicio::create($arr_campo);
@@ -47,13 +48,13 @@ class ServicioController extends Controller
 
     public function update(Servicio $servicio) {
         // Validar los campos
+
         $arr_campo = request()->validate([
             "nombre_servicio" => "required|max:100",
             "descripcion_servicio" => "nullable|max:150",
             "precio_base" => "required"
-
-
         ]);
+        request()->
 
         $servicio->update([
             "nombre_servicio" => request("nombre_servicio"),

@@ -139,7 +139,7 @@
 
                             <div class="mb-3">
                                 <label for="esta_trabajando" class="form-label">Actual Empleado</label>
-                                <input type="checkbox" class="form-control" name="esta_trabajando" id="esta_trabajando"
+                                <input type="checkbox" name="esta_trabajando" id="esta_trabajando"
                                     value="{{ old('esta_trabajando', $empleado->esta_trabajando) }}" />
                                 @if ($errors->first("esta_trabajando"))
                                 <br />
