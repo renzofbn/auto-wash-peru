@@ -55,20 +55,21 @@ class VentaController extends Controller
     public function store() {
         // Validar los campos
         error_log(print_r(request()->all(), true));
+        error_log(print_r(request()->input('id_servicio'), true));
         $arr_campo = request()->validate([
-            "id_servicio" => "required|min:2",
-            "id_cliente" => "required|min:2",
-            "id_e_supervisor" => "required|min:2",
-            "id_e_operario1" => "required|min:2",
-            "id_e_operario2" => "nullable|min:2",
-            "id_e_operario3" => "nullable|min:2",
-            "id_auto" => "required|min:2",
-            "tipo_auto" => "required|min:2",
+            "id_servicio" => "required",
+            "id_cliente" => "required",
+            "id_e_supervisor" => "required",
+            "id_e_operario1" => "required",
+            "id_e_operario2" => "nullable",
+            "id_e_operario3" => "nullable",
+            "id_auto" => "required",
+            "tipo_auto" => "required",
             "finalizado" => "required",
             "domicilio" => "required",
-            "subtotal" => "required|min:2",
-            "igv" => "required|min:2",
-            "total" => "required|min:2",
+            "subtotal" => "required",
+            "igv" => "required",
+            "total" => "required",
             "fecha_ingreso" => "required||date_format:Y-m-d\TH:i",
             "fecha_entrega" => "required||date_format:Y-m-d\TH:i",
         ]);
@@ -81,39 +82,56 @@ class VentaController extends Controller
 
     public function edit(Venta $venta) {
 
-        return view("venta.edit", [
+
+        $servicio = Servicio::orderBy('nombre_servicio', 'asc')->get();
+        $auto = Auto::orderBy('marca', 'asc')->get();
+        $cliente = Cliente::orderBy('nombre', 'asc')->get();
+        $e_supervisor = Cliente::orderBy('nombre', 'asc')->get();
+        $e_operario1 = Cliente::orderBy('nombre', 'asc')->get();
+        $e_operario2 = Cliente::orderBy('nombre', 'asc')->get();
+        $e_operario3 = Cliente::orderBy('nombre', 'asc')->get();
+
+        $venta = null;
+        if (is_null($venta)) {
+            $venta = Venta::make([
+                'fecha_ingreso' => Carbon::now(),
+                'fecha_entrega' => Carbon::now(),
+            ]);
+        }
+
+        return view('venta.edit', compact('servicio', 'auto', 'cliente','e_supervisor','e_operario1','e_operario2','e_operario3','venta'), [
             "venta" => $venta
-        ]);
+        ]); 
     }
 
     public function update(Venta $venta) {
         // Validar los campos
         $arr_campo = request()->validate([
-            "id_servicio" => "required|min:2",
-            "id_cliente" => "required|min:2",
-            "id_e_supervisor" => "required|min:2",
-            "id_e_operario1" => "required|min:2",
-            "id_e_operario2" => "nullable|min:2",
-            "id_e_operario3" => "nullable|min:2",
-            "id_auto" => "required|min:2",
-            "tipo_auto" => "required|min:2",
+            "id_servicio" => "required",
+            "id_cliente" => "required",
+            "id_e_supervisor" => "required",
+            "id_e_operario1" => "required",
+            "id_e_operario2" => "nullable",
+            "id_e_operario3" => "nullable",
+            "id_auto" => "required",
+            "tipo_auto" => "required",
             "finalizado" => "required",
             "domicilio" => "required",
-            "subtotal" => "required|min:2",
-            "igv" => "required|min:2",
-            "total" => "required|min:2",
+            "subtotal" => "required",
+            "igv" => "required",
+            "total" => "required",
             "fecha_ingreso" => "required||date_format:Y-m-d\TH:i",
             "fecha_entrega" => "required||date_format:Y-m-d\TH:i",
         ]);
 
         $venta->update([
-            "servicio" => request("servicio"),
-            "cliente" => request("cliente"),
-            "e_supervisor" => request("e_supervisor"),
-            "e_operario1" => request("e_operario1"),
-            "e_operario2" => request("e_operario2"),
-            "e_operario3" => request("e_operario3"),
-            "auto" => request("auto"),
+            "id_servicio" => request("id_servicio"),
+            "id_cliente" => request("id_cliente"),
+            "id_e_supervisor" => request("id_e_supervisor"),
+            "id_e_operario1" => request("id_e_operario1"),
+            "id_e_operario2" => request("id_e_operario2"),
+            "id_e_operario3" => request("id_e_operario3"),
+            "id_auto" => request("id_auto"),
             "tipo_auto" => request("tipo_auto"),
             "finalizado" => request("finalizado"),
             "domicilio" => request("domicilio"),

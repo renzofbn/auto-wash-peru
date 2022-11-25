@@ -17,14 +17,14 @@
                     <div class="card-body">
                         <table class="table table-striped">
                             <tr>
-                                <th>Servios</th>
+                                <th>Servicio</th>
                                 <th>Fecha de entrega</th>
                                 <th>Finalizado</th>
                                 <th colspan="3">Acción</th>
                             </tr>
                             @foreach ($venta as $arr_venta)
                             <tr>
-                                <td>{{ $arr_venta->servicio}}</td>
+                                <td> Venta N° {{ $arr_venta->id }}</td>
                                 <td>{{ $arr_venta->fecha_entrega }}</td>
                                 <td>{{ $arr_venta->finalizado }}</td>
                                 <td>
