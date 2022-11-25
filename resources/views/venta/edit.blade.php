@@ -1,6 +1,6 @@
 @extends("layout.plantilla")
 
-@section("titulo", "Editar Venta - Auto Wash Perú")
+@section("titulo", "Auto Wash Perú | ")
 
 @section("contenido")
     <div class="container mt-3">
@@ -17,7 +17,6 @@
                     <div class="card-body">
                         <form method="post" action="{{ route('venta.store') }}">
                             @csrf
-                            <p>{{ $venta['id_e_supervisor'] }}</p>
                             {{-- listar servicio --}}
                             <div class="mb-3">
                                 <label for="servicio" class="form-label">Servicio</label>
@@ -150,11 +149,11 @@
                             </div>
                             <div class="col-sm-4">
                                 <label for="fecha_ingreso" class="form-label">Fecha de Ingreso</label>
-                                <input type="datetime-local" name="fecha_ingreso" id="fecha_ingreso" class="form-control" readonly value="{{ old('fecha_ingreso', $venta->fecha_ingreso->format('Y-m-d\TH:i')) }}">
+                                <input type="datetime-local" name="fecha_ingreso" id="fecha_ingreso" class="form-control" readonly value="{{ old('fecha_ingreso', $venta->fecha_ingreso) }}">
                             </div>
                             <div class="col-sm-4">
                                 <label for="fecha_entrega" class="form-label">Fecha de entrega</label>
-                                <input type="datetime-local" name="fecha_entrega" id="fecha_entrega" class="form-control" value="{{ old('fecha_entrega', $venta->fecha_entrega->format('Y-m-d\TH:i')) }}">
+                                <input type="datetime-local" name="fecha_entrega" id="fecha_entrega" class="form-control" value="{{ old('fecha_entrega', $venta->fecha_entrega) }}">
                             </div>     
                             <div class="col-sm-4">
                                 <div class="form-check">
