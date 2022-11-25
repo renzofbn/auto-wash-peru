@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\AutoController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\VentaController;
 
 
 /*
@@ -28,3 +29,5 @@ Route::resource("servicio", ServicioController::class);
 Route::resource('auto', AutoController::class);
 
 Route::resource('cliente', ClienteController::class);
+
+Route::resource('venta', VentaController::class);

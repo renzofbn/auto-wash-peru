@@ -15,8 +15,11 @@
     </script>
     <!-- {{-- iconos --}} -->
     <script src="https://kit.fontawesome.com/24b090fe9f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"  href="{{asset('css/styles.css')}}">
+
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
 
 
     <title>@yield('titulo','Auto Wash Perú')</title>
@@ -54,12 +57,19 @@
                     <!-- {{-- Clientes --}} -->
                     <li class="nav-item dropdown rounded">
                         <a class="{{ resaltar_enlace_dropdown('cliente.*') }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-person pe-2"></i>Clientes</a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{{route ('cliente.index')}}">Listar</a></li>
                             <li><a class="dropdown-item" href="{{route ('cliente.create')}}">Agregar</a></li>
                         </ul>
                     </li>
-
+                    <!-- {{-- Venta --}} -->
+                    <li class="nav-item dropdown rounded">
+                        <a class="{{ resaltar_enlace_dropdown('venta.*') }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-person pe-2"></i>Venta</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{route ('venta.index')}}">Listar</a></li>
+                            <li><a class="dropdown-item" href="{{route ('venta.create')}}">Agregar</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -74,10 +84,35 @@
     {{-- Fin del contenido --}}
 
     {{-- Footer --}}
-    <br/><br/>
-    <div class="bg-dark text-white">
-        <p class="text-center p-4 m-0">Footer Content</p>
-    </div>
+    <section class="contact-area" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="contact-content text-center">
+                        <a href="#"><img src="https://i.ibb.co/QDy827D/ak-logo.png" alt="logo"></a>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum </p>
+                        <div class="hr"></div>
+                        <h6>1120 Lorem ipsum dolor sit amet, KC 179050, Chandigarh.</h6>
+                        <h6>+01 2345 6789 12<span>|</span>+01 2345 6789 12</h6>
+                        <div class="contact-social">
+                            <ul>
+                                <li><a class="hover-target" href=""><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a class="hover-target" href=""><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a class="hover-target" href=""><i class="fab fa-github"></i></a></li>
+                                <li><a class="hover-target" href=""><i class="fab fa-behance"></i></a></li>
+                                <li><a class="hover-target" href=""><i class="fab fa-pinterest-p"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =============== 1.9 Contact Area End ====================-->
+    <!-- =============== 1.9 Footer Area Start ====================-->
+    <footer>
+        <p>Copyright &copy; 2019 <img src="https://i.ibb.co/QDy827D/ak-logo.png" alt="logo"> All Rights Reserved.</p>
+    </footer>
     {{-- Fin del footer --}}
 </body>
 
