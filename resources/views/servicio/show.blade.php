@@ -30,8 +30,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8 offset-md-8">
-                <a href="{{ route('servicio.index') }}" class="btn btn-outline-primary">
+            <div class="col-md-10 d-flex justify-content-end " >
+                <a href="{{ route('servicio.index') }}" class="btn btn-outline-primary me-3">
                     Regresar
                 </a>
                 <a href="{{ route('servicio.edit', $servicio) }}" class="btn btn-outline-secondary">

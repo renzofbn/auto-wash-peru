@@ -87,7 +87,7 @@
                             </div>
                             @endif
                         </div>
-                            <div class="mb-3">
+                        <div class="mb-3">
                             <label for="modelo" class="form-label">Modelo del Auto</label>
                             <textarea class="form-control" name="modelo" id="modelo" rows="4" cols="">{{ old('modelo', $auto->modelo) }}</textarea>
                             @if ($errors->first("modelo"))
@@ -98,9 +98,9 @@
                             </div>
                             @endif
                         </div>
-                            <div class="col-md-8 offset-md-10">
-                                <button type="submit" class="btn btn-outline-primary">Guardar Cambios</button>
-                            </div>
+                        <div class="col-md-8 offset-md-10">
+                            <button type="submit" class="btn btn-outline-primary">Guardar Cambios</button>
+                        </div>
                     </form>
                 </div>
             </div>

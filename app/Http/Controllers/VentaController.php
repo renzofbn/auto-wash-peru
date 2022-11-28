@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Venta;
 use App\Models\Auto;
 use App\Models\Cliente;
@@ -40,43 +41,40 @@ class VentaController extends Controller
         if (is_null($venta)) {
             $venta = Venta::make([
                 'fecha_ingreso' => Carbon::now(),
-                'fecha_entrega' => Carbon::now(),
             ]);
         }
-
+        /* $param =
+        [
+            $this-> venta = $venta,
+            'tipo_auto' => Venta::TIPO_AUTOS,
+        ];
+ */
         return view('venta.create', compact('servicio', 'auto', 'cliente','e_supervisor','e_operario1','e_operario2','e_operario3','venta'), [ 'venta' => New Venta()]); 
 
-
-                /* $now = Carbon::now();
-        $fecha_actual = $now->format('Y-m-d\H:i'); */
-        /* return view("venta.create", [
-            "venta" => new Venta
-        ]); */
     }
     public function store() {
+        /* dd(request()->all()); */
         // Validar los campos
-        error_log(print_r(request()->all(), true));
-        error_log(print_r(request()->input('id_servicio'), true));
         $arr_campo = request()->validate([
             "id_servicio" => "required",
             "id_cliente" => "required",
             "id_e_supervisor" => "required",
             "id_e_operario1" => "required",
-            "id_e_operario2" => "nullable",
-            "id_e_operario3" => "nullable",
-            "id_auto" => "required",
+            "id_e_operario2" => "required",
+            "id_e_operario3" => "required",
+            "id_auto" => "required|min:1",
             "tipo_auto" => "required",
-            "finalizado" => "required",
-            "domicilio" => "required",
+            "finalizado" => "required|numeric|min:0|max:1",
+            "domicilio" => "required|numeric|min:0|max:1",
             "subtotal" => "required",
             "igv" => "required",
             "total" => "required",
-            "fecha_ingreso" => "required||date_format:Y-m-d\TH:i",
-            "fecha_entrega" => "required||date_format:Y-m-d\TH:i",
+            "fecha_entrega" => "required",
         ]);
 
-        error_log('fecha_ingreso: ' . $arr_campo['fecha_ingreso']);
+        /* error_log('fecha_ingreso: ' . $arr_campo['fecha_ingreso']); */
         Venta::create($arr_campo);
+        
 
         return redirect()->route("venta.index");
     }
@@ -90,32 +88,31 @@ class VentaController extends Controller
         $e_operario1 = Empleado::orderBy('nombre', 'asc')->get();
         $e_operario2 = Empleado::orderBy('nombre', 'asc')->get();
         $e_operario3 = Empleado::orderBy('nombre', 'asc')->get();
-        $venta_data = Venta::findOrFail('1');
 
-
-        return view('venta.edit', compact('servicio', 'auto', 'cliente','e_supervisor','e_operario1','e_operario2','e_operario3','venta_data'), [
+      
+        return view('venta.edit',compact('servicio', 'auto', 'cliente','e_supervisor','e_operario1','e_operario2','e_operario3'), [
             "venta" => $venta
         ]); 
     }
 
     public function update(Venta $venta) {
+
         // Validar los campos
         $arr_campo = request()->validate([
             "id_servicio" => "required",
             "id_cliente" => "required",
             "id_e_supervisor" => "required",
             "id_e_operario1" => "required",
-            "id_e_operario2" => "nullable",
-            "id_e_operario3" => "nullable",
-            "id_auto" => "required",
+            "id_e_operario2" => "required",
+            "id_e_operario3" => "required",
+            "id_auto" => "required|min:1",
             "tipo_auto" => "required",
-            "finalizado" => "required",
-            "domicilio" => "required",
+            "finalizado" => "nullable|numeric|min:0|max:1",
+            "domicilio" => "nullable|numeric|min:0|max:1",
             "subtotal" => "required",
             "igv" => "required",
             "total" => "required",
-            "fecha_ingreso" => "required||date_format:Y-m-d\TH:i",
-            "fecha_entrega" => "required||date_format:Y-m-d\TH:i",
+            "fecha_entrega" => "required",
         ]);
 
         $venta->update([
@@ -132,10 +129,8 @@ class VentaController extends Controller
             "subtotal" => request("subtotal"),
             "igv" => request("igv"),
             "total" => request("total"),
-            "fecha_ingreso" => request("fecha_ingreso"),
             "fecha_entrega" => request("fecha_entrega"),
-            
-            
+
         ]);
 
         return redirect()->route("venta.index");

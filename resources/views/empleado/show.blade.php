@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8 offset-md-8">
+                <div class="col-md-10 d-flex justify-content-end">
                     <a href="{{ route('empleado.index') }}" class="btn btn-outline-primary">
                         Regresar
                     </a>

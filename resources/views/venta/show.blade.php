@@ -11,11 +11,10 @@
                     Regresar
                 </a>
                 <div class="card mt-3">
-                    <h5 class="card-header">{{ $venta->ap_paterno }}</h5>
+                    <h5 class="card-header">Venta Nº {{ $venta->id }}</h5>
                     <div class="card-body">
                         <table class="table">
                             <thead>
-                              <>
                                 <th scope="col">Servicio</th>
                                 <th scope="col">Cliente</th>
                                 <th scope="col">Auto</th>
@@ -31,17 +30,17 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{{ $venta->servicio }}</td>
-                                    <td>{{ $venta->cliente }}</td>
-                                    <td>{{ $venta->auto }}</td>
-                                    <td>{{ $venta->tipo_vehiculo }}</td>
-                                    <td>{{ $venta->supervisor }}</td>
-                                    <td>{{ $venta->operario1 }}</td>
-                                    <td>{{ $venta->operario2 }}</td>
-                                    <td>{{ $venta->operario3 }}</td>
+                                    <td>{{ $venta->servicio->nombre_servicio}}</td>
+                                    <td>{{ $venta->cliente->nombre}} {{ $venta->cliente->ap_paterno}} {{ $venta->cliente->ap_materno}}</td>
+                                    <td>{{ $venta->auto->marca }} {{ $venta->auto->modelo }}</td>
+                                    <td>{{ $venta->mostrar_tipo_auto()}}</td>
+                                    <td>{{ $venta->e_supervisor->nombre }} {{ $venta->e_supervisor->ap_paterno }} {{ $venta->e_supervisor->ap_materno }}</td>
+                                    <td>{{ $venta->e_operario1->nombre}} {{ $venta->e_operario1->ap_paterno}} {{ $venta->e_operario1->ap_materno}}</td>
+                                    <td>{{ $venta->e_operario2->nombre}} {{ $venta->e_operario2->ap_paterno}} {{ $venta->e_operario2->ap_materno}}</td>
+                                    <td>{{ $venta->e_operario3->nombre}} {{ $venta->e_operario3->ap_paterno}} {{ $venta->e_operario3->ap_materno}}</td>
                                     <td>{{ $venta->fecha_ingreso }}</td>
                                     <td>{{ $venta->fecha_entrega }}</td>
-                                    <td>{{ $venta->finalizado }}</td>
+                                    <td>{{ $venta->estadofinalizado() }}</td>
                                 </tr>
                             </tbody>
                           </table>

@@ -15,162 +15,223 @@
                 <div class="card-body">
                     <form method="post" action="{{ route('venta.store') }}"> {{-- views/venta --}}
                         @csrf
-                        @if($errors->any())
-                            {{ implode('', $errors->all('<div>:message</div>')) }}
-                            @endif
-                        {{-- listar servicio --}}
                         <div class="mb-3">
-                            <label for="servicio" class="form-label">Servicio</label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="id_servicio" id="id_servicio">
-                                <option value="" selected>Seleccione un servicio</option>
+                            <label for="id_servicio" class="form-label">Servicio</label>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+                                name="id_servicio" id="id_servicio">
+                                <option value="">Seleccione un servicio</option>
                                 @foreach ($servicio as $servicio)
-                                <option value="{{ $servicio['id'] }}" {{ old('servicio') == $servicio['id'] ? 'selected' : '' }}>{{ $servicio['nombre_servicio'] }} | precio: {{ $servicio['precio_base'] }}</option>
+                                <option value="{{ $servicio->id }}" {{ old('id_servicio')==$servicio->id ? 'selected' :
+                                    '' }}>{{ $servicio->nombre_servicio}}</option>
                                 @endforeach
                             </select>
-                            @if ($errors->first("servicio"))
+                            @if ($errors->first("id_servicio"))
                             <br />
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $errors->first("servicio") }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                {{ $errors->first("id_servicio") }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
                             </div>
                             @endif
                         </div>
                         {{-- listar cliente --}}
                         <div class="mb-3">
-                            <label for="cliente" class="form-label">Cliente</label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="id_cliente" id="id_cliente">
-                                <option value="" selected>Seleccione un cliente</option>
+                            <label for="id_cliente" class="form-label">Cliente</label>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+                                name="id_cliente" id="id_cliente">
+                                <option value="">Seleccione un cliente</option>
                                 @foreach ($cliente as $cliente)
-                                <option value="{{ $cliente['id'] }}" {{ old('cliente') == $cliente['id'] ? 'selected' : '' }}>{{ $cliente['nombre'] }} {{ $cliente['ap_paterno'] }} {{ $cliente['ap_materno'] }}</option>
+                                <option value="{{ $cliente->id }}" {{ old('id_cliente')==$cliente->id ? 'selected' : ''
+                                    }}>{{ $cliente->nombre }} {{ $cliente->ap_paterno }} {{ $cliente->ap_materno }}
+                                </option>
                                 @endforeach
                             </select>
-                            @if ($errors->first("cliente"))
+                            @if ($errors->first("id_cliente"))
                             <br />
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $errors->first("cliente") }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                {{ $errors->first("id_cliente") }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
                             </div>
                             @endif
                         </div>
                         {{-- listar vehiculo --}}
                         <div class="mb-3">
-                            <label for="auto" class="form-label">Auto</label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="id_auto" id="id_auto">
-                                <option value="" selected>Seleccione un Auto</option>
+                            <label for="id_auto" class="form-label">Auto</label>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+                                name="id_auto" id="id_auto">
+                                <option value="">Seleccione un Auto</option>
                                 @foreach ($auto as $auto)
-                                <option value="{{ $auto['id'] }}" {{ old('auto') == $auto['id'] ? 'selected' : '' }}>{{ $auto['marca'] }} {{ $auto['modelo'] }}</option>
+                                <option value="{{ $auto->id }}" {{ old('auto')==$auto->id ? 'selected' : '' }}>{{
+                                    $auto->marca}} {{ $auto->modelo }}</option>
                                 @endforeach
                             </select>
-                            @if ($errors->first("auto"))
+                            @if ($errors->first("id_auto"))
                             <br />
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $errors->first("auto") }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                {{ $errors->first("id_auto") }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
                             </div>
                             @endif
                         </div>
                         <div class="mb-3">
-                            
-                            <label for="tipo" class="form-label">Tipo de vehiculo</label>
-                            <select   class="form-select form-select-sm" aria-label=".form-select-sm example" name="tipo_auto" id="tipo_auto">
-                                <option value="" selected>Seleccione el tipo de vehiculo</option>
-                                <option value="Auto"{{ old('tipo') == 'Auto' ? 'selected' : '' }}>Auto</option>
-                                <option value="Camioneta"{{ old('tipo') == 'Camioneta' ? 'selected' : '' }}>Camioneta</option>
-                                <option value="Minivan"{{ old('tipo') == 'Minivan' ? 'selected' : '' }}>Minivan</option>
-                                <option value="Van"{{ old('tipo') == 'Van' ? 'selected' : '' }}>Van</option>
+
+                            <label for="tipo_auto" class="form-label">Tipo de vehiculo</label>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+                                name="tipo_auto" id="tipo_auto">
+                                    <option value="" selected>Seleccione el tipo de vehiculo</option>
+                                    <option value="0" {{ old('tipo_auto')== 0 ? 'selected' : '' }}>Auto</option>
+                                    <option value="1" {{ old('tipo_auto')== 1 ? 'selected' : '' }}>Camioneta</option>
+                                    <option value="2" {{ old('tipo_auto')== 2 ? 'selected' : '' }}>Minivan</option>
+                                    <option value="3" {{ old('tipo_auto')== 3 ? 'selected' : '' }}>Van</option>
                             </select>
+                            @if ($errors->first("tipo_auto"))
+                            <br />
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ $errors->first("tipo_auto") }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                            @endif
                         </div>
                         {{-- listar empleado --}}
                         <div class="mb-3">
-                            <label for="e_supervisor" class="form-label">Supervisor</label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="id_e_supervisor" id="id_e_supervisor">
+                            <label for="id_e_supervisor" class="form-label">Supervisor</label>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+                                name="id_e_supervisor" id="id_e_supervisor">
                                 <option value="" selected>Seleccione un supervisor</option>
                                 @foreach ($e_supervisor as $e_supervisor)
-                                <option value="{{ $e_supervisor['id'] }}" {{ old('e_supervisor') == $e_supervisor['id'] ? 'selected' : '' }}>{{ $e_supervisor['nombre'] }} {{ $e_supervisor['ap_paterno'] }} | {{ $e_supervisor['cargo'] }}</option>
+                                <option value="{{ $e_supervisor->id }}" {{ old('id_e_supervisor')==$e_supervisor->id ?
+                                    'selected' : '' }}>{{ $e_supervisor->nombre }} {{ $e_supervisor->ap_paterno}} | {{
+                                    $e_supervisor->cargo }}</option>
                                 @endforeach
                             </select>
-                            @if ($errors->first("e_supervisor"))
+                            @if ($errors->first("id_e_supervisor"))
                             <br />
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $errors->first("e_supervisor") }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                {{ $errors->first("id_e_supervisor") }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
                             </div>
                             @endif
                         </div>
                         {{-- listar empleado --}}
                         <div class="mb-3">
-                            <label for="e_operario1" class="form-label">Operario 1</label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="id_e_operario1" id="id_e_operario1">
+                            <label for="id_e_operario1" class="form-label">Operario</label>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+                                name="id_e_operario1" id="id_e_operario1">
                                 <option value="" selected>Seleccione un operario</option>
                                 @foreach ($e_operario1 as $e_operario1)
-                                <option value="{{ $e_operario1['id'] }}" {{ old('e_operario2') == $e_operario1['id'] ? 'selected' : '' }}>{{ $e_supervisor['nombre'] }} {{ $e_supervisor['ap_paterno'] }} | {{ $e_supervisor['cargo'] }}</option>
+                                <option value="{{ $e_operario1->id }}" {{ old('id_e_operario1')==$e_operario1->id ?
+                                    'selected' : '' }}>{{ $e_operario1->nombre }} {{ $e_operario1->ap_paterno }} | {{
+                                    $e_operario1->cargo }}</option>
                                 @endforeach
                             </select>
-                            @if ($errors->first("e_operario2"))
+                            @if ($errors->first("id_e_operario1"))
                             <br />
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $errors->first("e_operario2") }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                {{ $errors->first("id_e_operario1") }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
                             </div>
                             @endif
                         </div>
                         {{-- listar empleado --}}
                         <div class="mb-3">
-                            <label for="e_operario2" class="form-label">Operario 2</label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="id_e_operario2" id="id_e_operario2">
+                            <label for="id_e_operario2" class="form-label">Operario</label>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+                                name="id_e_operario2" id="id_e_operario2">
                                 <option value="" selected>Seleccione un operario</option>
                                 @foreach ($e_operario2 as $e_operario2)
-                                <option value="{{ $e_operario2['id'] }}" {{ old('e_operario2') == $e_operario2['id'] ? 'selected' : '' }}>{{ $e_supervisor['nombre'] }} {{ $e_supervisor['ap_paterno'] }} | {{ $e_supervisor['cargo'] }}</option>
+                                <option value="{{ $e_operario2->id }}" {{ old('id_e_operario2')==$e_operario2->id ?
+                                    'selected' : '' }}>{{ $e_operario2['nombre'] }} {{ $e_operario2['ap_paterno'] }} |
+                                    {{ $e_operario2['cargo'] }}</option>
                                 @endforeach
                             </select>
-                            @if ($errors->first("e_operario2"))
+                            @if ($errors->first("id_e_operario2"))
                             <br />
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $errors->first("e_operario2") }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                {{ $errors->first("id_e_operario2") }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
                             </div>
                             @endif
                         </div>
                         {{-- listar empleado --}}
                         <div class="mb-3">
-                            <label for="e_operario3" class="form-label">Operario 3</label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="id_e_operario3" id="id_e_operario3">
+                            <label for="id_e_operario3" class="form-label">Operario</label>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+                                name="id_e_operario3" id="id_e_operario3">
                                 <option value="" selected>Seleccione un operario</option>
                                 @foreach ($e_operario3 as $e_operario3)
-                                <option value="{{ $e_operario3['id'] }}" {{ old('e_operario3') == $e_operario3['id'] ? 'selected' : '' }}>{{ $e_supervisor['nombre'] }} {{ $e_supervisor['ap_paterno'] }} | {{ $e_supervisor['cargo'] }}</option>
+                                <option value="{{ $e_operario3->id }}" {{ old('id_e_operario3')==$e_operario3->id ?
+                                    'selected' : '' }}>{{ $e_operario3['nombre'] }} {{ $e_operario3['ap_paterno'] }} |
+                                    {{ $e_operario3['cargo'] }}</option>
                                 @endforeach
                             </select>
-                            @if ($errors->first("e_operario3"))
+                            @if ($errors->first("id_e_operario3"))
                             <br />
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $errors->first("e_operario3") }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                {{ $errors->first("id_e_operario3") }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
                             </div>
                             @endif
-                        </div>
-                        <div class="col-sm-4">
-                            <label for="fecha_ingreso" class="form-label">Fecha de Ingreso</label>
-                            <input type="datetime-local" name="fecha_ingreso" id="fecha_ingreso" class="form-control" readonly value="{{ old('fecha_ingreso', $venta->fecha_ingreso->format('Y-m-d\TH:i')) }}">
                         </div>
                         <div class="col-sm-4">
                             <label for="fecha_entrega" class="form-label">Fecha de entrega</label>
-                            <input type="datetime-local" name="fecha_entrega" id="fecha_entrega" class="form-control" value="{{ old('fecha_entrega', $venta->fecha_entrega->format('Y-m-d\TH:i')) }}">
-                        </div>     
-                        <div class="col-sm-4">
-                            <div class="form-check">
-                                <input type="checkbox" name="finalizado" id="finalizado" class="form-check-input" value="1" @checked(old('finalizado', $venta->finalizado))>
-                                <label for="InputFinalizada" class="form-check-label">Finalizado</label>
+                            <input type="datetime-local" name="fecha_entrega" id="fecha_entrega" class="form-control"
+                                value="{{ old('fecha_entrega', $venta->fecha_entrega) }}">
+                            @if ($errors->first("fecha_entrega"))
+                            <br />
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ $errors->first("fecha_entrega") }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
                             </div>
-                            <div class="form-check">
-                                <input type="checkbox" name="domicilio" id="domicilio" class="form-check-input" value="1" @checked(old('domicilio', $venta->domicilio))>
-                                <label for="InputFinalizada" class="form-check-label">Entrega a Domicilio</label>
-                            </div>
+                            @endif
                         </div>
-                        
+                        <div class="col-sm-4">
+                            <label for="">Servicio Finalizado:</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="finalizado" id="finalizado1" value="1" {{ old('finalizado',$venta->finalizado) == '1' ? 'checked' : '' }}>
+                                <label class="form-check-label" for="finalizado1">Si</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="finalizado" id="finalizado2" value="0" {{ old('finalizado',$venta->finalizado) == '0' ? 'checked' : '' }}>
+                                <label class="form-check-label" for="finalizado2">No</label>
+                            </div>
+                            @if ($errors->first("finalizado"))
+                            <br />
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ $errors->first("finalizado") }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            @endif
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="">Entrega a domicilio:</label>
+                            <div class="form-check form-check-inline" >
+                                <input class="form-check-input" type="radio" name="domicilio" id="domicilio1" value="1" {{ old('domicilio',$venta->domicilio) == '1' ? 'checked' : '' }}>
+                                <label class="form-check-label" for="domicilio1">Si</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="domicilio" id="domicilio2" value="0" {{ old('domicilio',$venta->domicilio) == '0' ? 'checked' : '' }}>
+                                <label class="form-check-label" for="domicilio2">No</label>
+                            </div>
+                            @if ($errors->first("domicilio"))
+                            <br />
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ $errors->first("domicilio") }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            @endif
+                        </div>
                         <div class="mb-3">
                             <label for="subtotal" class="form-label">Subtotal</label>
-                            <input type="number" class="form-control" name="subtotal" id="subtotal" 
-                                value="{{ old('subtotal', $venta->subtotal) }}"/>
+                            <input type="number" class="form-control" name="subtotal" id="subtotal"
+                                value="{{ old('subtotal', $venta->subtotal) }}" />
                             @if ($errors->first("subtotal"))
                             <br />
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -182,7 +243,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="igv" class="form-label">IGV</label>
-                            <input type="number" class="form-control" name="igv" id="igv" 
+                            <input type="number" class="form-control" name="igv" id="igv"
                                 value="{{ old('igv', $venta->igv) }}" />
                             @if ($errors->first("igv"))
                             <br />
@@ -195,7 +256,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="total" class="form-label">Total</label>
-                            <input type="number" class="form-control" name="total" id="total" 
+                            <input type="number" class="form-control" name="total" id="total"
                                 value="{{ old('total', $venta->total) }}" />
                             @if ($errors->first("total"))
                             <br />

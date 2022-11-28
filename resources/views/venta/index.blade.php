@@ -4,8 +4,6 @@
 
 @section("contenido")
     <div class="container mt-3">
-        <header>
-        </header>
         <section>
             <article>
                 <a href="{{ route('venta.create') }}" class="btn btn-outline-success">
@@ -17,6 +15,7 @@
                     <div class="card-body">
                         <table class="table table-striped">
                             <tr>
+                                <th>Venta</th>
                                 <th>Servicio</th>
                                 <th>Fecha de entrega</th>
                                 <th>Finalizado</th>
@@ -24,9 +23,10 @@
                             </tr>
                             @foreach ($venta as $arr_venta)
                             <tr>
-                                <td> Venta N° {{ $arr_venta->id }}</td>
+                                <td> {{ $arr_venta->id }}</td>
+                                <td> {{ $arr_venta->servicio->nombre_servicio }}</td>
                                 <td>{{ $arr_venta->fecha_entrega }}</td>
-                                <td>{{ $arr_venta->finalizado }}</td>
+                                <td>{{ $arr_venta->estadofinalizado() }}</td>
                                 <td>
                                     <a href="{{ route('venta.show', $arr_venta) }}" class="btn btn-outline-success btn-sm">
                                         Ver más

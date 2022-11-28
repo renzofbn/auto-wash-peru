@@ -80,6 +80,7 @@ img {
 footer p {
     padding: 40px 0;
     text-align: center;
+    margin: 0 !important;
 }
 
 footer img {

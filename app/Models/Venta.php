@@ -13,7 +13,20 @@ class Venta extends Model
 
     protected $table = "tb_venta";
 
-    protected $fillable =['id_servicio','id_auto','id_cliente','id_e_supervisor','id_e_operario1','id_e_operario2','id_e_operario3','tipo_auto','finalizado','domicilio','subtotal','igv','total','fecha_ingreso','fecha_entrega'];
+    protected $fillable =['id_servicio',
+        'id_auto','id_cliente',
+        'id_e_supervisor',
+        'id_e_operario1',
+        'id_e_operario2',
+        'id_e_operario3',
+        'tipo_auto',
+        'finalizado',
+        'domicilio',
+        'subtotal',
+        'igv',
+        'total',
+        'fecha_ingreso',
+        'fecha_entrega'];
     
     public function servicio(){
         return $this->belongsTo('App\Models\Servicio','id_servicio');
@@ -41,6 +54,24 @@ class Venta extends Model
     protected $date_ingreso = ['fecha_ingreso'];
 
     protected $date_entrega = ['fecha_entrega'];
+
+   /*  public const TIPO_AUTOS = [ 'Auto', 'Camioneta', 'Minivan', 'Van'];
+
+    public function tipo_auto()
+    {
+        return self::TIPO_AUTOS[$this->tipo_auto];
+    } */
+    public function mostrar_tipo_auto(){
+        if($this->tipo_auto == 1){
+            return 'Auto';
+        }elseif($this->tipo_auto == 2){
+            return 'Camioneta';
+        }elseif($this->tipo_auto == 3){
+            return 'Minivan';
+        }elseif($this->tipo_auto == 4){
+            return 'Van';
+        }
+    }
 
     public function estadoFinalizado(){
         return $this->finalizado == 1 ? 'Si' : 'No';

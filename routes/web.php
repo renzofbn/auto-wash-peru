@@ -5,8 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\AutoController;
 use App\Http\Controllers\ClienteController;
-use App\Http\Controllers\VentaController;
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\VentaController;
 
 
 /*
@@ -29,5 +29,19 @@ Route::resource('auto', AutoController::class);
 
 Route::resource('cliente', ClienteController::class);
 
-Route::resource('venta', VentaController::class);
 Route::resource('empleado', EmpleadoController::class);
+
+/* Route::resource('venta', VentaController::class); */
+
+Route::get("/venta", [VentaController::class, "index"])->name("venta.index");
+Route::get("/venta/crear", [VentaController::class, "create"])->name("venta.create");
+
+Route::get("/venta/{venta}/editar", [VentaController::class, "edit"])->name("venta.edit");
+Route::put("/venta/{venta}", [VentaController::class, "update"])->name("venta.update");
+
+Route::get("/venta/{id}", [VentaController::class, "show"])->name("venta.show");
+Route::post("/venta", [VentaController::class, "store"])->name("venta.store");
+
+Route::delete("/venta/{venta}", [VentaController::class, "destroy"])->name("venta.destroy");
+
+
