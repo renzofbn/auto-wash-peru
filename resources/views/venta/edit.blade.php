@@ -2,6 +2,10 @@
 
 @section("titulo", "Auto Wash Perú | ")
 
+@section('links')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+@endsection
+
 @section("contenido")
 <div class="container mt-3">
     <section>
@@ -23,7 +27,7 @@
                                 <option value=""{{ old('id_servicio', $venta->id_servicio)}}>Seleccione un servicio</option>
                                 @foreach ($servicio as $servicio)
                                 <option value="{{ $servicio->id }}" {{ old('id_servicio', $venta->id_servicio)==$servicio->id ? 'selected' :
-                                    '' }}>{{ $servicio->nombre_servicio}}</option>
+                                    '' }}>{{ $servicio->nombre_servicio}}_{{ $servicio->precio_base }}</option>
                                 @endforeach
                             </select>
                             @if ($errors->first("id_servicio"))
@@ -77,11 +81,10 @@
                             @endif
                         </div>
                         <div class="mb-3">
-
                             <label for="tipo_auto" class="form-label">Tipo de vehiculo</label>
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example"
                                 name="tipo_auto" id="tipo_auto">
-                                    <option value="" {{ old('tipo_auto', $venta->tipo_auto) }} selected>Seleccione el tipo de vehiculo</option>
+                                    <option  {{ old('tipo_auto', $venta->tipo_auto) }} selected>Seleccione el tipo de vehiculo</option>
                                     <option value="0" {{ old('tipo_auto', $venta->tipo_auto)== 0 ? 'selected' : '' }}>Auto</option>
                                     <option value="1" {{ old('tipo_auto', $venta->tipo_auto)== 1 ? 'selected' : '' }}>Camioneta
                                     </option>
@@ -233,7 +236,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="subtotal" class="form-label">Subtotal</label>
-                            <input type="number" class="form-control" name="subtotal" id="subtotal"
+                            <input type="number" class="form-control" readonly="readonly" name="subtotal" id="subtotal"
                                 value="{{ old('subtotal', $venta->subtotal) }}" />
                             @if ($errors->first("subtotal"))
                             <br />
@@ -246,7 +249,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="igv" class="form-label">IGV</label>
-                            <input type="number" class="form-control" name="igv" id="igv"
+                            <input type="number" class="form-control" readonly="readonly" name="igv" id="igv"
                                 value="{{ old('igv', $venta->igv) }}" />
                             @if ($errors->first("igv"))
                             <br />
@@ -259,7 +262,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="total" class="form-label">Total</label>
-                            <input type="number" class="form-control" name="total" id="total"
+                            <input type="number" class="form-control" readonly="readonly" name="total" id="total"
                                 value="{{ old('total', $venta->total) }}" />
                             @if ($errors->first("total"))
                             <br />
@@ -269,6 +272,7 @@
                                     aria-label="Close"></button>
                             </div>
                             @endif
+                            <input type="hidden" name="total_venta" id="total_venta">
                         </div>
                         <button type="submit" class="btn btn-outline-primary">Guardar Cambios</button>
                     </form>
@@ -277,4 +281,5 @@
         </article>
     </section>
 </div>
+<script src="{{asset('js/venta.js') }}"></script>
 @endsection

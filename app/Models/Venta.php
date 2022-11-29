@@ -62,13 +62,13 @@ class Venta extends Model
         return self::TIPO_AUTOS[$this->tipo_auto];
     } */
     public function mostrar_tipo_auto(){
-        if($this->tipo_auto == 1){
+        if($this->tipo_auto == 0){
             return 'Auto';
-        }elseif($this->tipo_auto == 2){
+        }elseif($this->tipo_auto == 1){
             return 'Camioneta';
-        }elseif($this->tipo_auto == 3){
+        }elseif($this->tipo_auto == 2){
             return 'Minivan';
-        }elseif($this->tipo_auto == 4){
+        }elseif($this->tipo_auto == 3){
             return 'Van';
         }
     }

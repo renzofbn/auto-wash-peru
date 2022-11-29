@@ -75,7 +75,7 @@
                     </li>
                     <!-- {{-- Venta --}} -->
                     <li class="nav-item dropdown rounded">
-                        <a class="{{ resaltar_enlace_dropdown('venta.*') }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-person pe-2"></i>Venta</a>
+                        <a class="{{ resaltar_enlace_dropdown('venta.*') }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-cart-shopping pe-2"></i></i>Venta</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{{route ('venta.index')}}">Listar</a></li>
                             <li><a class="dropdown-item" href="{{route ('venta.create')}}">Agregar</a></li>
