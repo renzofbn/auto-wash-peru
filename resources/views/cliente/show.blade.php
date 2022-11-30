@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="col-md-10 d-flex justify-content-end">
-                <a href="{{ route('cliente.index') }}" class="btn btn-outline-primary">
+                <a href="{{ route('cliente.index') }}" class="btn btn-outline-primary me-3">
                     Regresar
                 </a>
                 <a href="{{ route('cliente.edit', $cliente) }}" class="btn btn-outline-secondary">

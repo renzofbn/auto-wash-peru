@@ -55,12 +55,6 @@ class Venta extends Model
 
     protected $date_entrega = ['fecha_entrega'];
 
-   /*  public const TIPO_AUTOS = [ 'Auto', 'Camioneta', 'Minivan', 'Van'];
-
-    public function tipo_auto()
-    {
-        return self::TIPO_AUTOS[$this->tipo_auto];
-    } */
     public function mostrar_tipo_auto(){
         if($this->tipo_auto == 0){
             return 'Auto';

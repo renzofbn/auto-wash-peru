@@ -8,7 +8,7 @@
 @section("contenido")
 <div class="container">
         <div class="mainheading">
-            <h1 class="sitetitle">clientes en Auto Wash Perú</h1>
+            <h1 class="sitetitle">clientes</h1>
             <p class="lead">
                Vista de los clientes que ofrecemos en Auto Wash Perú
             </p>

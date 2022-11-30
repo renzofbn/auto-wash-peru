@@ -86,3 +86,32 @@ footer p {
 footer img {
     width: 44px;
 }
+
+.slide{
+    margin-top: 10px ;
+}
+
+.slide img{
+    height: 85vh ;
+    object-fit: fill;
+}
+.container-loguiño{
+    background: #d0f4de;
+
+    height: 100%;
+}
+.container-logo img{
+    padding: 0 10px;
+    width: 100%;
+    margin: 0 auto;
+    object-fit: fill;
+}
+@media screen and (max-width: 992px) {
+    .container-logo{
+        display: none;
+    }
+    .slide img{
+        height: 50vh ;
+    }
+}
+    

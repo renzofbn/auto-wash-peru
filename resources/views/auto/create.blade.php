@@ -96,9 +96,7 @@
                             </div>
                             @endif
                         </div>
-                        <div class="col-md-8 offset-md-10">
-                            <button type="submit" class="btn btn-outline-primary">Registrar Auto</button>
-                        </div>
+                        <button type="submit" class="btn btn-outline-primary">Registrar Auto</button>
                     </form>
                 </div>
             </div>

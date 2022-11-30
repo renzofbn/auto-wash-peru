@@ -4,8 +4,7 @@
 
 @section("contenido")
     <div class="container mt-3">
-        <header>
-        </header>
+
         <section>
             <article>
                 <a href="{{ route('servicio.index') }}" class="btn btn-outline-success">
@@ -13,7 +12,7 @@
                 </a>
                 <!-- Formulario para editar categorías -->
                 <div class="card mt-3">
-                    <h5 class="card-header">Editar Categoría</h5>
+                    <h5 class="card-header">Editar Servicio</h5>
                     <div class="card-body">
                         <form method="post" action="{{ route('servicio.update', $servicio) }}">
                             @csrf
@@ -53,7 +52,6 @@
                                 </div>
                                 @endif
                             </div>
-                            
                             <button type="submit" class="btn btn-outline-primary">Guardar Cambios</button>
                         </form>
                     </div>
