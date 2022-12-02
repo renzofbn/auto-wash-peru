@@ -106,7 +106,7 @@
                                 @foreach ($e_supervisor as $e_supervisor)
                                 <option value="{{ $e_supervisor->id }}" {{ old('id_e_supervisor')==$e_supervisor->id ?
                                     'selected' : '' }}>{{ $e_supervisor->nombre }} {{ $e_supervisor->ap_paterno}} | {{
-                                    $e_supervisor->cargo}} -- {{ $e_supervisor->id }}</option>
+                                    $e_supervisor->cargo}}</option>
                                 @endforeach
                             </select>
                             @if ($errors->first("id_e_supervisor"))
