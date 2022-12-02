@@ -236,7 +236,7 @@
                         </div>
                         <div class="col-sm-4 mb-3">
                             <label for="subtotal" class="form-label">Subtotal</label>
-                            <input type="number" class="form-control" name="subtotal" id="subtotal"
+                            <input type="number" class="form-control" name="subtotal" id="subtotal" readonly="readonly"
                                 value=""{{ old('subtotal', $venta->subtotal) }} />
                             @if ($errors->first("subtotal"))
                             <br />
@@ -249,7 +249,7 @@
                         </div>
                         <div class="col-sm-4 mb-3">
                             <label for="igv" class="form-label">IGV</label>
-                            <input type="number" class="form-control"  name="igv" id="igv"
+                            <input type="number" class="form-control"  name="igv" id="igv" readonly="readonly"
                                 value=""{{ old('igv', $venta->igv) }} />
                             @if ($errors->first("igv"))
                             <br />
@@ -263,7 +263,7 @@
                         
                         <div class="col-sm-4 mb-3">
                             <label for="total" class="form-label">Total</label>
-                            <input type="number" class="form-control"  name="total" id="total"
+                            <input type="number" class="form-control"  name="total" id="total" readonly="readonly"
                                 value=""{{ old('total', $venta->total) }} />
                             @if ($errors->first("total"))
                             <br />

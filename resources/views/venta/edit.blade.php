@@ -1,6 +1,6 @@
 @extends("layout.plantilla")
 
-@section("titulo", "Auto Wash Perú | ")
+@section("titulo", "Auto Wash Perú | Venta N° $venta->id")
 
 @section('links')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -14,33 +14,15 @@
                 Regresar
             </a>
             <!-- Formulario para editar categorías -->
-            <div class="card mt-3">
+            <div class="card mt-3 row">
                 <h5 class="card-header">Editar Venta</h5>
                 <div class="card-body">
                     <form method="post" action="{{ route('venta.update', $venta) }}">
                         @csrf
                         @method("put")
-                        <div class="mb-3">
-                            <label for="id_servicio" class="form-label">Servicio</label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example"
-                                name="id_servicio" id="id_servicio">
-                                <option value=""{{ old('id_servicio', $venta->id_servicio)}}>Seleccione un servicio</option>
-                                @foreach ($servicio as $servicio)
-                                <option value="{{ $servicio->id }}" {{ old('id_servicio', $venta->id_servicio)==$servicio->id ? 'selected' :
-                                    '' }}>{{ $servicio->nombre_servicio}}_{{ $servicio->precio_base }}</option>
-                                @endforeach
-                            </select>
-                            @if ($errors->first("id_servicio"))
-                            <br />
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $errors->first("id_servicio") }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
-                            @endif
-                        </div>
                         {{-- listar cliente --}}
-                        <div class="mb-3">
+                        <div class="row">
+                        <div class="col-sm-12 mb-3">
                             <label for="id_cliente" class="form-label">Cliente</label>
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example"
                                 name="id_cliente" id="id_cliente">
@@ -60,8 +42,28 @@
                             </div>
                             @endif
                         </div>
+                        <hr class="dropdown-divider">
+                        <div class="col-sm-4 mb-3">
+                            <label for="id_servicio" class="form-label">Servicio</label>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+                                name="id_servicio" id="id_servicio">
+                                <option value=""{{ old('id_servicio', $venta->id_servicio)}}>Seleccione un servicio</option>
+                                @foreach ($servicio as $servicio)
+                                <option value="{{ $servicio->id }}" {{ old('id_servicio', $venta->id_servicio)==$servicio->id ? 'selected' :
+                                    '' }}>{{ $servicio->nombre_servicio}}_{{ $servicio->precio_base }}</option>
+                                @endforeach
+                            </select>
+                            @if ($errors->first("id_servicio"))
+                            <br />
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ $errors->first("id_servicio") }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                            @endif
+                        </div>
                         {{-- listar vehiculo --}}
-                        <div class="mb-3">
+                        <div class="col-sm-4 mb-3">
                             <label for="id_auto" class="form-label">Auto</label>
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example"
                                 name="id_auto" id="id_auto">
@@ -80,7 +82,7 @@
                             </div>
                             @endif
                         </div>
-                        <div class="mb-3">
+                        <div class="col-sm-4 mb-3">
                             <label for="tipo_auto" class="form-label">Tipo de vehiculo</label>
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example"
                                 name="tipo_auto" id="tipo_auto">
@@ -123,7 +125,7 @@
                             @endif
                         </div>
                         {{-- listar empleado --}}
-                        <div class="mb-3">
+                        <div class="col-sm-4 mb-3">
                             <label for="id_e_operario1" class="form-label">Operario</label>
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example"
                                 name="id_e_operario1" id="id_e_operario1">
@@ -144,7 +146,7 @@
                             @endif
                         </div>
                         {{-- listar empleado --}}
-                        <div class="mb-3">
+                        <div class="col-sm-4 mb-3">
                             <label for="id_e_operario2" class="form-label">Operario</label>
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example"
                                 name="id_e_operario2" id="id_e_operario2">
@@ -165,7 +167,7 @@
                             @endif
                         </div>
                         {{-- listar empleado --}}
-                        <div class="mb-3">
+                        <div class="col-sm-4 mb-3">
                             <label for="id_e_operario3" class="form-label">Operario</label>
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example"
                                 name="id_e_operario3" id="id_e_operario3">
@@ -200,11 +202,11 @@
                         </div>
                         <div class="col-sm-4">
                             <label for="">Servicio Finalizado:</label>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check">
                                 <input class="form-check-input" type="radio" name="finalizado" id="finalizado1" value="1" {{ old('finalizado',$venta->finalizado) == '1' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="finalizado1">Si</label>
                             </div>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check">
                                 <input class="form-check-input" type="radio" name="finalizado" id="finalizado2" value="0" {{ old('finalizado',$venta->finalizado) == '0' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="finalizado2">No</label>
                             </div>
@@ -218,11 +220,11 @@
                         </div>
                         <div class="col-sm-4">
                             <label for="">Entrega a domicilio:</label>
-                            <div class="form-check form-check-inline" >
+                            <div class="form-check form-check" >
                                 <input class="form-check-input" type="radio" name="domicilio" id="domicilio1" value="1" {{ old('domicilio',$venta->domicilio) == '1' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="domicilio1">Si</label>
                             </div>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check">
                                 <input class="form-check-input" type="radio" name="domicilio" id="domicilio2" value="0" {{ old('domicilio',$venta->domicilio) == '0' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="domicilio2">No</label>
                             </div>
@@ -234,7 +236,7 @@
                             </div>
                             @endif
                         </div>
-                        <div class="mb-3">
+                        <div class="col-sm-4 mb-3">
                             <label for="subtotal" class="form-label">Subtotal</label>
                             <input type="number" class="form-control" readonly="readonly" name="subtotal" id="subtotal"
                                 value="{{ old('subtotal', $venta->subtotal) }}" />
@@ -247,7 +249,7 @@
                             </div>
                             @endif
                         </div>
-                        <div class="mb-3">
+                        <div class="col-sm-4 mb-3">
                             <label for="igv" class="form-label">IGV</label>
                             <input type="number" class="form-control" readonly="readonly" name="igv" id="igv"
                                 value="{{ old('igv', $venta->igv) }}" />
@@ -260,7 +262,7 @@
                             </div>
                             @endif
                         </div>
-                        <div class="mb-3">
+                        <div class="col-sm-4 mb-3">
                             <label for="total" class="form-label">Total</label>
                             <input type="number" class="form-control" readonly="readonly" name="total" id="total"
                                 value="{{ old('total', $venta->total) }}" />
@@ -273,6 +275,7 @@
                             </div>
                             @endif
                             <input type="hidden" name="total_venta" id="total_venta">
+                        </div>
                         </div>
                         <button type="submit" class="btn btn-outline-primary">Guardar Cambios</button>
                     </form>
