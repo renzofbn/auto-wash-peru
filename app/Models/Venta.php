@@ -38,16 +38,16 @@ class Venta extends Model
         return $this->belongsTo('App\Models\Cliente','id_cliente');
     }
     public function e_supervisor(){
-        return $this->belongsTo('App\Models\Cliente','id_cliente');
+        return $this->belongsTo('App\Models\Empleado','id_e_supervisor');
     }
     public function e_operario1(){
-        return $this->belongsTo('App\Models\Cliente','id_cliente');
+        return $this->belongsTo('App\Models\Empleado','id_e_operario1');
     }
     public function e_operario2(){
-        return $this->belongsTo('App\Models\Cliente','id_cliente');
+        return $this->belongsTo('App\Models\Empleado','id_e_operario2');
     }
     public function e_operario3(){
-        return $this->belongsTo('App\Models\Cliente','id_cliente');
+        return $this->belongsTo('App\Models\Empleado','id_e_operario3');
     }
     
     

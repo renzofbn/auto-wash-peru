@@ -8,9 +8,9 @@
 @section("contenido")
     <div class="container">
         <div class="mainheading">
-            <h1 class="sitetitle">Autos </h1>
+            <h1 class="sitetitle">Vehículos Registrados </h1>
             <p class="lead">
-                Vista de los Autos
+                Vista de los Vehículos
             </p>
         </div>
         <!-- End Site Title
@@ -20,7 +20,7 @@
         ================================================== -->
         <section class="featured-posts">
             <div class="section-title">
-                <h2><span>Autos | </span></h2>
+                <h2><span>Vehículos | </span></h2>
             </div>
             <div class="card-columns listfeaturedtag">
                 @if ($auto)
@@ -40,10 +40,10 @@
                                 <div class="metafooter">
                                     <div class="wrapfooter">
                                         <span class="meta-footer-thumb">
-                                            <a href="#"><img class="author-thumb" src="assets/default_profile.png" alt="Autor"></a>
+                                            <a href="#"><img class="author-thumb" src="assets/auto.png" alt="Autor"></a>
                                         </span>
                                         <span class="author-meta">
-                                            <span class="post-name"><a href="#">Autor</a></span><br />
+                                            <span class="post-name"><a href="#">Vehículo</a></span><br />
                                             <span class="post-date">{{ $arr_auto->modelo }}</span>
                                         </span>
                                         <span class="btn-eliminar">

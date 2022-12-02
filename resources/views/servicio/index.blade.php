@@ -44,7 +44,7 @@
                                 <div class="metafooter">
                                     <div class="wrapfooter">
                                         <span class="meta-footer-thumb">
-                                        <a href="#"><img class="author-thumb" src="assets/default_profile.png" alt="Autor"></a>
+                                        <a href="#"><img class="author-thumb" src="assets/servicio.png" alt="Autor"></a>
                                         </span>
                                         <span class="author-meta">
                                         <span class="post-name"><a href="#">Autor</a></span><br/>

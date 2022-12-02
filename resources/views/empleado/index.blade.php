@@ -20,7 +20,7 @@
         ================================================== -->
         <section class="featured-posts">
             <div class="section-title">
-                <h2><span>empleados | </span></h2>
+                <h2><span>Empleados | </span></h2>
             </div>
             <div class="card-columns listfeaturedtag">
                 
@@ -42,10 +42,10 @@
                                 <div class="metafooter">
                                     <div class="wrapfooter">
                                         <span class="meta-footer-thumb">
-                                        <a href="#"><img class="author-thumb" src="assets/default_profile.png" alt="Autor"></a>
+                                        <a href="#"><img class="author-thumb" src="assets/empleado.png" alt="Autor"></a>
                                         </span>
                                         <span class="author-meta">
-                                        <span class="post-name"><a href="#">Autor</a></span><br/>
+                                        <span class="post-name"><a href="#">Empleado</a></span><br/>
                                         <span class="post-date">{{ $arr_empleado->email }}</span>
                                         </span>
                                         <span class="btn-eliminar">

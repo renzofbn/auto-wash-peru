@@ -23,12 +23,13 @@
                             <h1>{{ $venta->servicio->nombre_servicio }}</h1>
                             <hr>
                             <h5 style='font-size:22px'>Cliente</h5>
-                            <span class="author-description">{{ $venta->cliente->nombre }}{{ $venta->cliente->ap_paterno }}{{ $venta->cliente->ap_materno }}</span>
+                            <span class="author-description">{{ $venta->cliente->nombre }} {{ $venta->cliente->ap_paterno }} {{ $venta->cliente->ap_materno }}</span>
                             <br><br>
                             <h5 style='font-size:22px'>Vehículo</h5>
                             <span class="author-description"><strong>Marca: </strong>{{ $venta->auto->marca }} | <strong>Modelo: </strong>{{ $venta->auto->modelo }} | <strong>Tipo: </strong>{{ $venta->mostrar_tipo_auto() }}</span>
                             <br><br>
                             <h5 style='font-size:22px'>Equipo de trabajo</h5>
+                            <span class="author-description"> <strong>Cargo: {{ $venta->e_supervisor->cargo }}</strong> | {{ $venta->e_supervisor->nombre }} {{ $venta->e_supervisor->ap_paterno }} {{ $venta->e_supervisor->ap_materno }} </span><br>
                             <span class="author-description"> <strong>Cargo: {{ $venta->e_operario1->cargo }}</strong> | {{ $venta->e_operario1->nombre }} {{ $venta->e_operario1->ap_paterno }} {{ $venta->e_operario1->ap_materno }} </span><br>
                             <span class="author-description"><strong>Cargo: {{ $venta->e_operario2->cargo }}</strong> | {{ $venta->e_operario2->nombre }} {{ $venta->e_operario2->ap_paterno }} {{ $venta->e_operario2->ap_materno }} </span><br>
                             <span class="author-description"><strong>Cargo: {{ $venta->e_operario3->cargo }}</strong> | {{ $venta->e_operario3->nombre }} {{ $venta->e_operario3->ap_paterno }} {{ $venta->e_operario3->ap_materno }} </span>
