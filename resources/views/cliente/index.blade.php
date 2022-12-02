@@ -10,7 +10,7 @@
         <div class="mainheading">
             <h1 class="sitetitle">Clientes Registrados</h1>
             <p class="lead">
-               Vista de los clientes que ofrecemos en Auto Wash Perú
+               Lista de Clientes de la empresa, 
             </p>
         </div>
         <!-- End Site Title

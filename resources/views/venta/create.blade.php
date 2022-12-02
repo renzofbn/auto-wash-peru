@@ -68,7 +68,7 @@
                                 <option selected>Seleccione un auto</option>
                                 @foreach ($auto as $auto)
                                 <option value="{{ $auto->id }}" {{ old('auto')==$auto->id ? 'selected' : '' }}>{{
-                                    $auto->marca}} {{ $auto->modelo }}</option>
+                                    $auto->marca}} | {{ $auto->modelo }}</option>
                                 @endforeach
                             </select>
                             @if ($errors->first("id_auto"))
@@ -108,7 +108,7 @@
                                 @foreach ($e_supervisor as $e_supervisor)
                                 <option value="{{ $e_supervisor->id }}" {{ old('id_e_supervisor')==$e_supervisor->id ?
                                     'selected' : '' }}>{{ $e_supervisor->nombre }} {{ $e_supervisor->ap_paterno}} | {{
-                                    $e_supervisor->cargo }}</option>
+                                    $e_supervisor->cargo}}</option>
                                 @endforeach
                             </select>
                             @if ($errors->first("id_e_supervisor"))
@@ -235,7 +235,7 @@
                         <div class="mb-3">
                             <label for="subtotal" class="form-label">Subtotal</label>
                             <input type="number" class="form-control" name="subtotal" id="subtotal"
-                                value=""{{ old('subtotal', $venta->subtotal) }} readonly="readonly"/>
+                                value=""{{ old('subtotal', $venta->subtotal) }} />
                             @if ($errors->first("subtotal"))
                             <br />
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -247,7 +247,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="igv" class="form-label">IGV</label>
-                            <input type="number" class="form-control" readonly="readonly" name="igv" id="igv"
+                            <input type="number" class="form-control"  name="igv" id="igv"
                                 value=""{{ old('igv', $venta->igv) }} />
                             @if ($errors->first("igv"))
                             <br />
@@ -260,7 +260,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="total" class="form-label">Total</label>
-                            <input type="number" class="form-control" readonly="readonly" name="total" id="total"
+                            <input type="number" class="form-control"  name="total" id="total"
                                 value=""{{ old('total', $venta->total) }} />
                             @if ($errors->first("total"))
                             <br />
