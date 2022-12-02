@@ -22,7 +22,7 @@
     ================================================== -->
     <section class="featured-posts">
         <div class="section-title">
-            <h2><span>Venta | </span></h2>
+            <h2><span>Ventas | </span></h2>
         </div>
         <div class="card-columns listfeaturedtag">
             
@@ -45,7 +45,7 @@
                             <div class="metafooter">
                                 <div class="wrapfooter">
                                     <span class="meta-footer-thumb">
-                                    <a href="#"><img class="author-thumb" src="assets/default_profile.png" alt="Autor"></a>
+                                    <a href="#"><img class="author-thumb" src="assets/venta.png" alt="Autor"></a>
                                     </span>
                                     <span class="author-meta">
                                     <span class="post-name"><a href="#">VENTA Nº {{ $arr_venta->id }}</a></span><br/>

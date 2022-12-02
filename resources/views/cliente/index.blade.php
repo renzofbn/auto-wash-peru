@@ -8,7 +8,7 @@
 @section("contenido")
 <div class="container">
         <div class="mainheading">
-            <h1 class="sitetitle">Clientes</h1>
+            <h1 class="sitetitle">Clientes Registrados</h1>
             <p class="lead">
                Lista de Clientes de la empresa, 
             </p>
@@ -45,7 +45,7 @@
                                         <a href="#"><img class="author-thumb" src="assets/default_profile.png" alt="Autor"></a>
                                         </span>
                                         <span class="author-meta">
-                                        <span class="post-name"><a href="#">Autor</a></span><br/>
+                                        <span class="post-name"><a href="#">Cliente</a></span><br/>
                                         <span class="post-date">{{ $arr_cliente->email }}</span>
                                         </span>
                                         <span class="btn-eliminar">

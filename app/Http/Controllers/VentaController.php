@@ -43,12 +43,7 @@ class VentaController extends Controller
                 'fecha_ingreso' => Carbon::now(),
             ]);
         }
-        /* $param =
-        [
-            $this-> venta = $venta,
-            'tipo_auto' => Venta::TIPO_AUTOS,
-        ];
- */
+
         return view('venta.create', compact('servicio', 'auto', 'cliente','e_supervisor','e_operario1','e_operario2','e_operario3','venta'), [ 'venta' => New Venta()]); 
 
     }
