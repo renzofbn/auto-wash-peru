@@ -65,7 +65,7 @@
                             <label for="id_auto" class="form-label">Auto</label>
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example"
                                 name="id_auto" id="id_auto">
-                                <option value="">Seleccione un Auto</option>
+                                <option selected>Seleccione un Auto</option>
                                 @foreach ($auto as $auto)
                                 <option value="{{ $auto->id }}" {{ old('id_auto', $venta->id_auto)==$auto->id ? 'selected' : '' }}>{{
                                     $auto->marca}} {{ $auto->modelo }}</option>

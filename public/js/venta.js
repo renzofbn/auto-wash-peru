@@ -38,5 +38,6 @@ function precioxAuto(){
        if(precios.value == '3'){
            var precio_venta = parseFloat(precio_base) + 180;
        }
+       
        return precio_venta.toFixed(2);
 }

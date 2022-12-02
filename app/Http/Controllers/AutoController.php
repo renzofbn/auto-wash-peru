@@ -33,11 +33,8 @@ class AutoController extends Controller
 
 
         $arr_campo = request()->validate([
-            "marca" => "required|min:2",
+            "marca" => "required|min:0",
             "modelo" => "required|min:1"
-        ], [
-            "marca.required" => "Seleccione una marca.",
-            "modelo.required" => "Escriba el modelo del auto."
         ]);
 
         Auto::create($arr_campo);
@@ -55,7 +52,7 @@ class AutoController extends Controller
     public function update(Auto $auto) {
         // Validar los campos
         $arr_campo = request()->validate([
-            "marca" => "required|min:2",
+            "marca" => "required|min:0",
             "modelo" => "required|min:1"
         ]);
 
