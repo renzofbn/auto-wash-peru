@@ -41,6 +41,7 @@
                             </div>
                             @endif
                         </div>
+                        <hr class="dropdown-divider">
                         <div class="col-sm-4 mb-3">
                             <label for="id_servicio" class="form-label">Servicio</label>
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example"
@@ -183,6 +184,7 @@
                             </div>
                             @endif
                         </div>
+
                         <div class="col-sm-4">
                             <label for="fecha_entrega" class="form-label">Fecha de entrega</label>
                             <input type="datetime-local" name="fecha_entrega" id="fecha_entrega" class="form-control"
@@ -198,11 +200,11 @@
                         </div>
                         <div class="col-sm-4">
                             <label class="form-label" for="finalizado">Servicio Finalizado:</label>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check">
                                 <input class="form-check-input" type="radio" name="finalizado" id="finalizado1" value="1" {{ old('finalizado',$venta->finalizado) == '1' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="finalizado1">Si</label>
                             </div>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check">
                                 <input class="form-check-input" type="radio" name="finalizado" id="finalizado2" value="0" {{ old('finalizado',$venta->finalizado) == '0' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="finalizado2">No</label>
                             </div>
@@ -216,11 +218,11 @@
                         </div>
                         <div class="col-sm-4">
                             <label for="">Entrega a domicilio:</label>
-                            <div class="form-check form-check-inline" >
+                            <div class="form-check form-check" >
                                 <input class="form-check-input" type="radio" name="domicilio" id="domicilio1" value="1" {{ old('domicilio',$venta->domicilio) == '1' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="domicilio1">Si</label>
                             </div>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check">
                                 <input class="form-check-input" type="radio" name="domicilio" id="domicilio2" value="0" {{ old('domicilio',$venta->domicilio) == '0' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="domicilio2">No</label>
                             </div>
@@ -232,7 +234,7 @@
                             </div>
                             @endif
                         </div>
-                        <div class="mb-3">
+                        <div class="col-sm-4 mb-3">
                             <label for="subtotal" class="form-label">Subtotal</label>
                             <input type="number" class="form-control" name="subtotal" id="subtotal"
                                 value=""{{ old('subtotal', $venta->subtotal) }} />
@@ -245,7 +247,7 @@
                             </div>
                             @endif
                         </div>
-                        <div class="mb-3">
+                        <div class="col-sm-4 mb-3">
                             <label for="igv" class="form-label">IGV</label>
                             <input type="number" class="form-control"  name="igv" id="igv"
                                 value=""{{ old('igv', $venta->igv) }} />
@@ -258,7 +260,8 @@
                             </div>
                             @endif
                         </div>
-                        <div class="mb-3">
+                        
+                        <div class="col-sm-4 mb-3">
                             <label for="total" class="form-label">Total</label>
                             <input type="number" class="form-control"  name="total" id="total"
                                 value=""{{ old('total', $venta->total) }} />
