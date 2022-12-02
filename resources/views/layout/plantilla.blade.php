@@ -77,7 +77,7 @@
                     </li>
                     <!-- {{-- Venta --}} -->
                     <li class="nav-item dropdown rounded">
-                        <a class="{{ resaltar_enlace_dropdown('venta.*') }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-cart-shopping pe-2"></i></i>Venta</a>
+                        <a class="{{ resaltar_enlace_dropdown('venta.*') }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-cart-shopping pe-2"></i></i>Ventas</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{{route ('venta.index')}}">Listar</a></li>
                             <li><a class="dropdown-item" href="{{route ('venta.create')}}">Agregar</a></li>
@@ -101,17 +101,16 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="contact-content text-center">
                         <a href="#"><img src="https://www.autowashperu.com/images/logo.png"" alt="logo"></a>   
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum </p>
+                        <p>Nuestra razón de ser, es dar un servicio de calidad a nuestros clientes.</p>
                         <div class="hr"></div>
-                        <h6>1120 Lorem ipsum dolor sit amet, KC 179050, Chandigarh.</h6>
-                        <h6>+01 2345 6789 12<span>|</span>+01 2345 6789 12</h6>
+                        <h6>Av. Prol. Iquitos 1738, Lince 15046</h6>
+                        <h6>+51 990 931 751<span>|</span>+51 940 149 230</h6>
                         <div class="contact-social">
                             <ul>
-                                <li><a class="hover-target" href=""><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a class="hover-target" href=""><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a class="hover-target" href=""><i class="fab fa-github"></i></a></li>
-                                <li><a class="hover-target" href=""><i class="fab fa-behance"></i></a></li>
-                                <li><a class="hover-target" href=""><i class="fab fa-pinterest-p"></i></a></li>
+                                <li><a class="hover-target" href="https://www.facebook.com/autowashperu"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a class="hover-target" href="https://www.youtube.com/channel/UCK2uSjtjZjcNBZwk5KomD_g"><i class="fab fa-youtube"></i></a></li>
+                                <li><a class="hover-target" href="https://www.instagram.com/autowashperu/"><i class="fab fa-instagram"></i></a></li>
+                                <li><a class="hover-target" href="https://twitter.com/renzofbn"><i class="fab fa-twitter"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -122,7 +121,7 @@
     <!-- =============== 1.9 Contact Area End ====================-->
     <!-- =============== 1.9 Footer Area Start ====================-->
     <footer>
-        <p>Copyright &copy; 2019 <img src="https://www.autowashperu.com/images/logo.png" alt="logo" style="width: 95px"> All Rights Reserved.</p>
+        <p>Copyright &copy; 2022 <img src="https://www.autowashperu.com/images/logo.png" alt="logo" style="width: 95px">Todos los derechos reservados.</p>
     </footer>
     {{-- Fin del footer --}}
 </body>

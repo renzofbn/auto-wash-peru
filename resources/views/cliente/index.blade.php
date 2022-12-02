@@ -8,9 +8,9 @@
 @section("contenido")
 <div class="container">
         <div class="mainheading">
-            <h1 class="sitetitle">clientes</h1>
+            <h1 class="sitetitle">Clientes</h1>
             <p class="lead">
-               Vista de los clientes que ofrecemos en Auto Wash Perú
+               Lista de Clientes de la empresa, 
             </p>
         </div>
         <!-- End Site Title
@@ -20,7 +20,7 @@
         ================================================== -->
         <section class="featured-posts">
             <div class="section-title">
-                <h2><span>clientes | </span></h2>
+                <h2><span>Clientes | </span></h2>
             </div>
             <div class="card-columns listfeaturedtag">
                 

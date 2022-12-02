@@ -8,9 +8,9 @@
 @section("contenido")
 <div class="container">
         <div class="mainheading">
-            <h1 class="sitetitle">empleados </h1>
+            <h1 class="sitetitle">Empleados </h1>
             <p class="lead">
-               Vista de los empleados que ofrecemos en Auto Wash Perú
+               Lista de Empleados de la empresa Auto Wash Perú
             </p>
         </div>
         <!-- End Site Title
@@ -20,7 +20,7 @@
         ================================================== -->
         <section class="featured-posts">
             <div class="section-title">
-                <h2><span>empleados | </span></h2>
+                <h2><span>Empleados | </span></h2>
             </div>
             <div class="card-columns listfeaturedtag">
                 
