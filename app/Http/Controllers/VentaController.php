@@ -79,10 +79,10 @@ class VentaController extends Controller
         $servicio = Servicio::orderBy('nombre_servicio', 'asc')->get();
         $auto = Auto::orderBy('marca', 'asc')->get();
         $cliente = Cliente::orderBy('nombre', 'asc')->get();
-        $e_supervisor = Empleado::orderBy('nombre', 'asc')->get();
-        $e_operario1 = Empleado::orderBy('nombre', 'asc')->get();
-        $e_operario2 = Empleado::orderBy('nombre', 'asc')->get();
-        $e_operario3 = Empleado::orderBy('nombre', 'asc')->get();
+        $e_supervisor = Empleado::where('cargo', 'supervisor')->get();
+        $e_operario1 = Empleado::whereNotIn('cargo',['supervisor'])->orderby('cargo','asc')->get();
+        $e_operario2 = Empleado::whereNotIn('cargo',['supervisor'])->orderby('cargo','asc')->get();
+        $e_operario3 = Empleado::whereNotIn('cargo',['supervisor'])->orderby('cargo','asc')->get();
 
       
         return view('venta.edit',compact('servicio', 'auto', 'cliente','e_supervisor','e_operario1','e_operario2','e_operario3'), [
