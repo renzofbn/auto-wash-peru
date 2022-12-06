@@ -56,13 +56,13 @@ class Venta extends Model
     protected $date_entrega = ['fecha_entrega'];
 
     public function mostrar_tipo_auto(){
-        if($this->tipo_auto == 0){
+        if($this->tipo_auto == 1){
             return 'Auto';
-        }elseif($this->tipo_auto == 1){
-            return 'Camioneta';
         }elseif($this->tipo_auto == 2){
-            return 'Minivan';
+            return 'Camioneta';
         }elseif($this->tipo_auto == 3){
+            return 'Minivan';
+        }elseif($this->tipo_auto == 4){
             return 'Van';
         }
     }

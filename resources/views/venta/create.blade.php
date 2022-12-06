@@ -21,7 +21,7 @@
                         @csrf
                         {{-- listar cliente --}}
                         <div class="row">
-                        <div class="col-sm-12 mb-3">
+                        <div class="col-sm-12 mb-5">
                             <label for="id_cliente" class="form-label">Cliente</label>
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example"
                                 name="id_cliente" id="id_cliente">
@@ -42,7 +42,7 @@
                             @endif
                         </div>
                         <hr class="dropdown-divider">
-                        <div class="col-sm-4 mb-3">
+                        <div class="col-sm-4 mb-5">
                             <label for="id_servicio" class="form-label">Servicio</label>
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example"
                                 name="id_servicio" id="id_servicio" >
@@ -62,14 +62,15 @@
                             @endif
                         </div>
                         {{-- listar vehiculo --}}
-                        <div class="col-sm-4 mb-3">
+                        <div class="col-sm-4 mb-4">
                             <label for="id_auto" class="form-label">Auto</label>
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example"
                                 name="id_auto" id="id_auto">
                                 <option selected>Seleccione un auto</option>
                                 @foreach ($auto as $auto)
-                                <option value="{{ $auto->id }}" {{ old('auto')==$auto->id ? 'selected' : '' }}>{{
-                                    $auto->marca}} | {{ $auto->modelo }}</option>
+                                <option value="{{ $auto->id }}" {{ old('id_auto', $venta->id_auto)==$auto->id ? 'selected' :
+                                    '' }}>{{
+                                    $auto->marca}} {{ $auto->modelo }}</option>
                                 @endforeach
                             </select>
                             @if ($errors->first("id_auto"))
@@ -81,15 +82,15 @@
                             </div>
                             @endif
                         </div>
-                        <div class="col-sm-4 mb-3">
+                        <div class="col-sm-4 mb-4">
                             <label for="tipo_auto" class="form-label">Tipo de vehículo</label>
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example"
                                 name="tipo_auto" id="tipo_auto" >
                                     <option selected>Seleccione el tipo de vehículo</option>
-                                    <option value="0" {{ old('tipo_auto')== 0 ? 'selected' : '' }}>Auto</option>
-                                    <option value="1" {{ old('tipo_auto')== 1 ? 'selected' : '' }}>Camioneta</option>
-                                    <option value="2" {{ old('tipo_auto')== 2 ? 'selected' : '' }}>Minivan</option>
-                                    <option value="3" {{ old('tipo_auto')== 3 ? 'selected' : '' }}>Van</option>
+                                    <option value="1" {{ old('tipo_auto')== 1 ? 'selected' : '' }}>Auto</option>
+                                    <option value="2" {{ old('tipo_auto')== 2 ? 'selected' : '' }}>Camioneta</option>
+                                    <option value="3" {{ old('tipo_auto')== 3 ? 'selected' : '' }}>Minivan</option>
+                                    <option value="4" {{ old('tipo_auto')== 4 ? 'selected' : '' }}>Van</option>
                             </select>
                             @if ($errors->first("tipo_auto"))
                             <br />
@@ -101,15 +102,14 @@
                             @endif
                         </div>
                         {{-- listar empleado --}}
-                        <div class="mb-3">
+                        <div class="col-sm-12 mb-4">
                             <label for="id_e_supervisor" class="form-label">Supervisor</label>
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example"
                                 name="id_e_supervisor" id="id_e_supervisor">
                                 <option selected>Seleccione un supervisor</option>
                                 @foreach ($e_supervisor as $e_supervisor)
                                 <option value="{{ $e_supervisor->id }}" {{ old('id_e_supervisor')==$e_supervisor->id ?
-                                    'selected' : '' }}>{{ $e_supervisor->nombre }} {{ $e_supervisor->ap_paterno}} | {{
-                                    $e_supervisor->cargo}}</option>
+                                    'selected' : '' }}>{{ $e_supervisor->nombre }} {{ $e_supervisor->ap_paterno}} {{ $e_supervisor->ap_materno}}</option>
                                 @endforeach
                             </select>
                             @if ($errors->first("id_e_supervisor"))
@@ -122,15 +122,15 @@
                             @endif
                         </div>
                         {{-- listar empleado --}}
-                        <div class="col-sm-4 mb-3">
+                        <div class="col-sm-4 mb-5">
                             <label for="id_e_operario1" class="form-label">Operario 1</label>
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example"
                                 name="id_e_operario1" id="id_e_operario1">
                                 <option selected>Seleccione un operario</option>
                                 @foreach ($e_operario1 as $e_operario1)
                                 <option value="{{ $e_operario1->id }}" {{ old('id_e_operario1')==$e_operario1->id ?
-                                    'selected' : '' }}>{{ $e_operario1->nombre }} {{ $e_operario1->ap_paterno }} | {{
-                                    $e_operario1->cargo }}</option>
+                                    'selected' : '' }}>{{
+                                    $e_operario1->cargo }}: {{ $e_operario1->nombre }} {{ $e_operario1->ap_paterno }} {{ $e_operario1->ap_materno }}</option>
                                 @endforeach
                             </select>
                             @if ($errors->first("id_e_operario1"))
@@ -143,15 +143,15 @@
                             @endif
                         </div>
                         {{-- listar empleado --}}
-                        <div class="col-sm-4 mb-3">
+                        <div class="col-sm-4 mb-5">
                             <label for="id_e_operario2" class="form-label">Operario 2</label>
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example"
                                 name="id_e_operario2" id="id_e_operario2">
                                 <option selected>Seleccione un operario</option>
                                 @foreach ($e_operario2 as $e_operario2)
                                 <option value="{{ $e_operario2->id }}" {{ old('id_e_operario2')==$e_operario2->id ?
-                                    'selected' : '' }}>{{ $e_operario2['nombre'] }} {{ $e_operario2['ap_paterno'] }} |
-                                    {{ $e_operario2['cargo'] }}</option>
+                                    'selected' : '' }}>{{ $e_operario2->cargo}}: {{ $e_operario2->nombre }} {{ $e_operario2->ap_paterno }} {{ $e_operario2->ap_materno }} 
+                                    </option>
                                 @endforeach
                             </select>
                             @if ($errors->first("id_e_operario2"))
@@ -164,15 +164,15 @@
                             @endif
                         </div>
                         {{-- listar empleado --}}
-                        <div class="col-sm-4 mb-3">
+                        <div class="col-sm-4 mb-5">
                             <label for="id_e_operario3" class="form-label">Operario 3</label>
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example"
                                 name="id_e_operario3" id="id_e_operario3">
                                 <option selected>Seleccione un operario</option>
                                 @foreach ($e_operario3 as $e_operario3)
                                 <option value="{{ $e_operario3->id }}" {{ old('id_e_operario3')==$e_operario3->id ?
-                                    'selected' : '' }}>{{ $e_operario3['nombre'] }} {{ $e_operario3['ap_paterno'] }} |
-                                    {{ $e_operario3['cargo'] }}</option>
+                                    'selected' : '' }}>{{ $e_operario3->cargo }}: {{ $e_operario3->nombre }} {{ $e_operario3->ap_paterno }} {{ $e_operario3->ap_materno }}
+                                    </option>
                                 @endforeach
                             </select>
                             @if ($errors->first("id_e_operario3"))
@@ -185,7 +185,7 @@
                             @endif
                         </div>
 
-                        <div class="col-sm-4">
+                        <div class="col-sm-4 mb-4">
                             <label for="fecha_entrega" class="form-label">Fecha de entrega</label>
                             <input type="datetime-local" name="fecha_entrega" id="fecha_entrega" class="form-control"
                                 value="{{ old('fecha_entrega', $venta->fecha_entrega) }}">
@@ -198,7 +198,7 @@
                             </div>
                             @endif
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-4 mb-4">
                             <label class="form-label" for="finalizado">Servicio Finalizado:</label>
                             <div class="form-check form-check">
                                 <input class="form-check-input" type="radio" name="finalizado" id="finalizado1" value="1" {{ old('finalizado',$venta->finalizado) == '1' ? 'checked' : '' }}>
@@ -216,7 +216,7 @@
                             </div>
                             @endif
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-4 mb-4">
                             <label for="">Entrega a domicilio:</label>
                             <div class="form-check form-check" >
                                 <input class="form-check-input" type="radio" name="domicilio" id="domicilio1" value="1" {{ old('domicilio',$venta->domicilio) == '1' ? 'checked' : '' }}>
@@ -233,8 +233,11 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                             @endif
-                        </div>
-                        <div class="col-sm-4 mb-3">
+                        </div ">
+                        
+                        <hr>
+    
+                        <div class="col-sm-3 mb-3 ">
                             <label for="subtotal" class="form-label">Subtotal</label>
                             <input type="number" class="form-control" name="subtotal" id="subtotal" readonly="readonly"
                                 value=""{{ old('subtotal', $venta->subtotal) }} />
@@ -247,7 +250,7 @@
                             </div>
                             @endif
                         </div>
-                        <div class="col-sm-4 mb-3">
+                        <div class="col-sm-3 mb-3">
                             <label for="igv" class="form-label">IGV</label>
                             <input type="number" class="form-control"  name="igv" id="igv" readonly="readonly"
                                 value=""{{ old('igv', $venta->igv) }} />
@@ -261,7 +264,7 @@
                             @endif
                         </div>
                         
-                        <div class="col-sm-4 mb-3">
+                        <div class="col-sm-3 mb-3">
                             <label for="total" class="form-label">Total</label>
                             <input type="number" class="form-control"  name="total" id="total" readonly="readonly"
                                 value=""{{ old('total', $venta->total) }} />
@@ -274,8 +277,12 @@
                             </div>
                             @endif
                         </div>
+                        <div class="col-sm-3 d-flex justify-content-end align-items-center"" >
+                            <div><button type="button" class="btn btn-success " name="cotizar" id="cotizar" onclick="mostrarValores()"> Cotizar Servicio</button></div>
+                            
+                        </div>
                     </div>
-                        <button type="submit" class="btn btn-outline-primary">Registrar venta</button>
+                        <button type="submit" class="btn btn-outline-primary" onclick="comprobarinputs()">Registrar venta</button>
                     </form>
                 </div>
             </div>

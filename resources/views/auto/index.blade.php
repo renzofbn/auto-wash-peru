@@ -43,7 +43,7 @@
                                             <a href="#"><img class="author-thumb" src="assets/auto.png" alt="Autor"></a>
                                         </span>
                                         <span class="author-meta">
-                                            <span class="post-name"><a href="#">Vehículo</a></span><br />
+                                            <span class="post-name"><a href="#">Vehículo Nº {{ $arr_auto->id }}</a></span><br />
                                             <span class="post-date">{{ $arr_auto->modelo }}</span>
                                         </span>
                                         <span class="btn-eliminar">

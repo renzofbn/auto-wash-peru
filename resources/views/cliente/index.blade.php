@@ -45,7 +45,7 @@
                                         <a href="#"><img class="author-thumb" src="assets/default_profile.png" alt="Autor"></a>
                                         </span>
                                         <span class="author-meta">
-                                        <span class="post-name"><a href="#">Cliente</a></span><br/>
+                                        <span class="post-name"><a href="#">Cliente Nº {{ $arr_cliente->id }}</a></span><br/>
                                         <span class="post-date">{{ $arr_cliente->email }}</span>
                                         </span>
                                         <span class="btn-eliminar">

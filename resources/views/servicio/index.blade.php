@@ -47,7 +47,7 @@
                                         <a href="#"><img class="author-thumb" src="assets/servicio.png" alt="Autor"></a>
                                         </span>
                                         <span class="author-meta">
-                                        <span class="post-name"><a href="#">Autor</a></span><br/>
+                                        <span class="post-name"><a href="#">Servicio Nº {{ $arr_servicio->id }}</a></span><br/>
                                         <span class="post-date">{{ $arr_servicio->created_at }}</span>
                                         </span>
                                         <span class="btn-eliminar">

@@ -1,5 +1,5 @@
-$("#id_servicio").change(precioxAuto,mostrarValores); 
-$("#tipo_auto").change(precioxAuto,mostrarValores);
+/* $("#id_servicio").change(precioxAuto,mostrarValores); 
+$("#tipo_auto").change(precioxAuto,mostrarValores); */
 /*      $("#sprecio_base").val(); */
 ;
 function mostrarValores() {
@@ -26,18 +26,30 @@ function precioxAuto(){
        console.log(precio_base);
 
        var precio_venta = 0;
-       if(precios.value == '0'){
+
+       if(precios.value == '1'){
            var precio_venta = parseFloat(precio_base);
        }
-       if(precios.value == '1'){
+       if(precios.value == '2'){
            var precio_venta = parseFloat(precio_base) + 100;
        }
-       if(precios.value == '2'){
+       if(precios.value == '3'){
            var precio_venta = parseFloat(precio_base) + 150;
        }
-       if(precios.value == '3'){
+       if(precios.value == '4'){
            var precio_venta = parseFloat(precio_base) + 180;
        }
        
+       
        return precio_venta.toFixed(2);
+}
+
+function comprobarinputs(){
+    var subtotal = $("#subtotal").val();
+    
+    if(subtotal == 0 || subtotal == ""){
+        alert("Vuelva a Cotizar por favor");
+        return false;
+    }
+
 }

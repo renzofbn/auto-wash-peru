@@ -45,7 +45,7 @@
                                         <a href="#"><img class="author-thumb" src="assets/empleado.png" alt="Autor"></a>
                                         </span>
                                         <span class="author-meta">
-                                        <span class="post-name"><a href="#">Empleado</a></span><br/>
+                                        <span class="post-name"><a href="#">Empleado Nº {{ $arr_empleado->id }}</a></span><br/>
                                         <span class="post-date">{{ $arr_empleado->email }}</span>
                                         </span>
                                         <span class="btn-eliminar">
